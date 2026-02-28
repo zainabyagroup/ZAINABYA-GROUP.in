@@ -1,15 +1,12 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zainabya Group Islamic | Premium Tasbeeh & Islamic Essentials</title>
-    
-    <meta name="description" content="Zainabya Group: Your trusted destination for Premium Islamic Essentials. Shop authentic Karbala Sajdagah, Crystal Tasbeeh, and beautiful Islamic Decor.">
-    <meta name="keywords" content="Zainabya Group, Buy Karbala Sajdagah Online India, Premium Crystal Tasbeeh, Islamic Gift Items, Shia Islamic Store, Authentic Khak-e-Shifa, Islamic Home Decor, Buy Quran Online, Twelve Imams Wall Clock, Islamic Essentials Store">
-
-    <link rel="canonical" href="https://zainabyagroup.github.io/ZGI/">
+    <title>Zainabya Group Islamic | Premium Tasbeeh, & Islamic Essentials</title>
+    <meta name="description" content="Buy premium Islamic essentials at Zainabya Group. Specializing in Karbala Sajdagah, Crystal Tasbeeh, and Islamic Decor. Experience Spiritual Excellence.">
+    <meta name="keywords" content="Zainabya Group, Islamic Store, Karbala Sajdagah, Crystal Tasbeeh, Islamic Gifts Online">
+    <link rel="canonical" href="https://14starstraders.github.io/ZAINABYA-GROUP/">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +25,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         body { background-color: var(--cream); color: #333; line-height: 1.6; }
 
+        /* SPINNING WHEEL LOADER */
         #loader {
             position: fixed; inset: 0; background: var(--cream); z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -39,256 +37,343 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+        /* TOP BAR */
         .bogo-banner { 
             background: linear-gradient(90deg, var(--offer-red), #ff5252); 
-            color: white; text-align: center; padding: 8px; font-weight: 700; font-size: 11px; 
-            text-transform: uppercase; letter-spacing: 1px;
+            color: white; 
+            text-align: center; 
+            padding: 8px; 
+            font-weight: 700; 
+            font-size: 13px; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header { 
             background: var(--charcoal); 
-            color: white; padding: 10px 0; border-bottom: 3px solid var(--gold); 
-            position: sticky; top: 0; z-index: 1001; 
+            backdrop-filter: blur(10px);
+            color: white; 
+            padding: 10px 0; 
+            border-bottom: 3px solid var(--gold); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1001; 
         }
 
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         
-        .logo { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .logo img { height: 45px; width: auto; }
-        .logo span { font-size: 16px; font-weight: 800; color: var(--gold); letter-spacing: 1px; }
+        .logo img { 
+            height: 75px; 
+            width: auto;
+            cursor: pointer; 
+            display: block; 
+            transition: 0.3s;
+        }
         
-        .nav-links a { color: white; text-decoration: none; font-size: 12px; font-weight: 600; margin-left: 10px; cursor: pointer; }
-        .badge { background: var(--gold); color: black; padding: 2px 6px; border-radius: 50px; font-size: 10px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; margin-left: 20px; cursor: pointer; transition: 0.3s; }
+        .badge { background: var(--gold); color: black; padding: 2px 8px; border-radius: 50px; font-size: 12px; font-weight: 700; }
 
-        .top-hero-banner { width: 100%; height: 60vh; background: var(--charcoal); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .top-hero-banner img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0.7; }
-        .banner-text { position: relative; z-index: 10; text-align: center; color: var(--gold); padding: 20px; }
-        .banner-text h1 { font-family: 'Amiri', serif; font-size: 32px; margin-bottom: 10px; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
-        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        
-        @media (min-width: 768px) {
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-            .logo span { font-size: 22px; }
-            .top-hero-banner { height: 80vh; }
+        /* HERO SECTION */
+        .top-hero-banner { 
+            width: 100%; 
+            height: 100vh; 
+            background: var(--charcoal); 
+            position: relative; 
+            overflow: hidden; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
         }
 
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; position: relative; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card-img-container { padding: 15px; height: 180px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .top-hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .banner-text { position: relative; z-index: 10; text-align: center; color: var(--gold); padding: 0 20px; background: rgba(0,0,0,0.3); border-radius: 20px; padding: 20px;}
+        .banner-text h1 { font-family: 'Amiri', serif; font-size: clamp(30px, 8vw, 60px); line-height: 1.1; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .banner-text p { color: white; font-size: 18px; letter-spacing: 1px; margin-bottom: 30px; font-weight: 300; }
+        
+        /* PRODUCT GRID */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; margin-top: 10px; }
+        .card { background: var(--white); border-radius: 20px; overflow: hidden; position: relative; border: 1px solid rgba(0,0,0,0.05); text-align: center; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); }
+        .card-img-container { background: #fdfdfd; padding: 20px; height: 250px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .card img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .price { color: var(--islamic-green); font-weight: 800; font-size: 18px; margin-bottom: 10px; display: block; }
+        .price { color: var(--islamic-green); font-weight: 800; font-size: 22px; margin-bottom: 15px; display: block; }
+        .card-tag { background: var(--offer-red); color: white; font-size: 11px; padding: 6px 15px; border-radius: 0 0 0 15px; position: absolute; top: 0; right: 0; z-index: 5; font-weight: 700; }
         
-        .qty-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
-        .qty-btn { background: var(--islamic-green); color: white; border: none; width: 32px; height: 32px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        /* - 0 + QTY CONTROLS */
+        .qty-controls { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; width: 90%; margin-left: auto; margin-right: auto; }
+        .qty-btn { background: var(--islamic-green); color: white; border: none; width: 40px; height: 40px; border-radius: 10px; font-size: 20px; cursor: pointer; font-weight: bold; }
+        .qty-val { font-size: 18px; font-weight: 700; min-width: 20px; }
 
-        .btn-buy { background: var(--islamic-green); color: white; padding: 12px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; width: 90%; margin-bottom: 15px; font-size: 12px; }
+        .btn-buy { background: var(--islamic-green); color: white; padding: 15px 30px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; width: 90%; margin-bottom: 20px; transition: 0.3s; }
 
-        .filter-tabs { display: flex; justify-content: center; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
-        .tab-btn { padding: 8px 15px; border: 1px solid var(--islamic-green); background: white; border-radius: 20px; cursor: pointer; font-size: 12px; color: var(--islamic-green); }
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border: 1px solid var(--islamic-green); background: white; border-radius: 30px; cursor: pointer; font-weight: 600; color: var(--islamic-green); }
         .tab-btn.active { background: var(--islamic-green); color: white; }
 
-        .page-view { display: none; animation: fadeIn 0.3s ease; }
+        .page-view { display: none; animation: fadeIn 0.4s ease-in; }
         .active { display: block; }
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
-        footer { background: #002e26; color: white; padding: 40px 20px; text-align: center; font-size: 13px; }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-decoration: none; }
+        footer { background: #002e26; color: white; padding: 60px 20px; text-align: center; margin-top: 50px; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         
-        #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; }
-        .pay-card { background: white; padding:25px; border-radius:20px; text-align:center; width:90%; max-width:350px; }
-        
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; }
+        .pay-card { background: white; padding:30px; border-radius:25px; text-align:center; max-width:400px; width:90%; border-top: 10px solid var(--gold); }
     </style>
 </head>
 <body>
 
-    <div id="loader"><div class="spinner"></div></div>
+    <div id="loader">
+        <div class="spinner"></div>
+        <p style="margin-top:15px; font-weight:600; color:var(--islamic-green)">Zainabya Group Loading...</p>
+    </div>
 
-    <div class="bogo-banner">RAMAZAN OFFER: BUY 1 GET 1 FREE!</div>
+    <div class="bogo-banner">RAMAZAN OFFER: BUY 1 GET 1 FREE ON EVERY PRODUCT!</div>
 
     <header>
-        <nav class="nav-container">
-            <div class="logo" onclick="app.nav('home')">
-                <img src="LOGO.png" alt="Logo">
-                <span>ZAINABYA GROUP</span>
-            </div>
+        <nav class="nav-container" aria-label="Main Navigation">
+          <div class="logo" onclick="app.nav('home')" style="display: flex; align-items: center; gap: 10px;">
+    <img src="LOGO.png" alt="Zainabya Group Logo" width="50" height="50">
+    <span style="font-size: 24px; font-weight: 800; color: var(--gold); letter-spacing: 2px;">ZAINABYA GROUP ISLAMIC</span>
+</div>
             <div class="nav-links">
-                <a onclick="app.nav('catalog')">Shop</a>
-                <a onclick="app.nav('cart')">Bag <span class="badge" id="badge">0</span></a>
+                <a onclick="app.nav('home')" role="button">Home</a>
+                <a onclick="app.nav('catalog')" role="button">Shop</a>
+                <a onclick="app.nav('cart')" role="button" aria-label="View Shopping Bag">🛒 Bag <span class="badge" id="badge">0</span></a>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="top-hero-banner" id="mainHero">
-            <img src="BANNER.png" alt="Banner">
+            <img src="BANNER.png" alt="Zainabya Premium Islamic Banner" fetchpriority="high">
             <div class="banner-text">
-                <h1>Purely Sacred</h1>
-                <p>Islamic Essentials for Your Home</p>
+                <h1></h1>
+                <p></p>
             </div>
         </section>
 
         <section id="page-home" class="page-view active">
-            <div class="container" style="text-align:center; padding: 50px 20px;">
-                <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:32px;">Spiritual Excellence</h2>
-                <p style="margin: 15px 0 30px; color:#666;">Quality guaranteed for your daily essentials.</p>
-                <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:15px 40px; border-radius:50px; background:var(--gold); color:black;">SHOP NOW</button>
+            <div class="container" style="text-align:center; padding: 80px 20px;">
+                <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:40px; margin-bottom:15px;">Experience Spiritual Excellence</h2>
+                <p style="max-width:700px; margin: 0 auto 40px; color:#666; font-size:18px;">Quality and Purity guaranteed for your daily spiritual essentials.</p>
+                <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:18px 50px; border-radius:50px; font-size:18px; background:var(--gold); color:black;" aria-label="Shop our collection">SHOP COLLECTION</button>
             </div>
         </section>
 
         <section id="page-catalog" class="page-view">
             <div class="container">
+                <h2 style="text-align:center; font-family:'Amiri'; font-size:35px; margin-bottom:10px;">Our Premium Collection</h2>
                 <div class="filter-tabs">
-                    <button class="tab-btn active" onclick="app.filter('All', event)">All</button>
-                    <button class="tab-btn" onclick="app.filter('Essentials', event)">Essentials</button>
-                    <button class="tab-btn" onclick="app.filter('Tasbeeh', event)">Tasbeeh</button>
-                    <button class="tab-btn" onclick="app.filter('BOOKS', event)">Books</button>
+                    <button class="tab-btn active" onclick="app.filter('All')">All Items</button>
+                    <button class="tab-btn" onclick="app.filter('Essentials')">Essentials</button>
+                    <button class="tab-btn" onclick="app.filter('Tasbeeh')">Tasbeeh</button>
+                    <button class="tab-btn" onclick="app.filter('BOOKS')">Books</button>
+                    <button class="tab-btn" onclick="app.filter('DECOR')">Decor</button>
                 </div>
                 <div id="productGrid" class="product-grid"></div>
             </div>
         </section>
 
-        <section id="page-spec" class="page-view"><div class="container" id="specContent"></div></section>
+        <section id="page-spec" class="page-view"><div class="container"><div id="specContent"></div></div></section>
         
         <section id="page-cart" class="page-view">
-            <div class="container" style="max-width:500px; background:white; border-radius:15px;">
-                <h2 style="font-family:'Amiri'; padding-bottom:10px; border-bottom:1px solid #eee;">Your Bag</h2>
-                <div id="cartList" style="margin:20px 0;"></div>
-                <h3 style="text-align:right;">Total: Rs. <span id="cartTotal">0</span></h3>
-                <button onclick="app.nav('checkout')" class="btn-buy" style="margin-top:20px; width:100%;">CHECKOUT</button>
+            <div class="container" style="max-width:600px; background:white; padding:30px; border-radius:20px;">
+                <h2 style="font-family:'Amiri'; border-bottom:2px solid var(--gold); padding-bottom:10px;">Your Shopping Bag</h2>
+                <div id="cartList" style="margin-top:20px;"></div>
+                <h3 style="margin-top:20px; text-align:right;">Subtotal: Rs. <span id="cartTotal">0</span></h3>
+                <button onclick="app.nav('checkout')" class="btn-buy" style="margin-top:20px; border-radius:50px;">PROCEED TO CHECKOUT</button>
             </div>
         </section>
 
         <section id="page-checkout" class="page-view">
-            <div class="container" style="max-width:400px; background:white; border-radius:15px;">
-                <h3 style="margin-bottom:15px;">Delivery Details</h3>
-                <input type="text" id="custName" placeholder="Full Name">
-                <input type="tel" id="custPhone" placeholder="WhatsApp Number">
-                <textarea id="custAddr" placeholder="Full Address with Pincode"></textarea>
-                <button onclick="app.openPay()" class="btn-buy" style="width:100%;">CONFIRM & PAY</button>
+            <div class="container" style="max-width:500px; background:white; padding:30px; border-radius:20px;">
+                <h3 style="margin-bottom:20px; color:var(--islamic-green);">Shipping Details</h3>
+                <input type="text" id="custName" aria-label="Full Name" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="Full Name">
+                <input type="tel" id="custPhone" aria-label="WhatsApp Number" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="WhatsApp Number">
+                <textarea id="custAddr" aria-label="Address" style="width:100%; padding:15px; margin-bottom:20px; border-radius:10px; border:1px solid #ddd; height:100px;" placeholder="Full Address with Pincode"></textarea>
+                <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
             </div>
         </section>
     </main>
 
-    <div id="payModal">
+    <div id="payModal" role="dialog" aria-labelledby="payTitle">
         <div class="pay-card">
-            <h3>Scan & Pay</h3>
-            <p style="margin:10px 0;">Amount: <b>Rs. <span id="payAmt">0</span></b></p>
-            <img id="qrImg" src="" alt="QR" width="200">
-            <button onclick="app.confirmOrder()" style="background:#25d366; color:white; width:100%; padding:12px; border:none; border-radius:10px; font-weight:700; margin-top:15px;">I HAVE PAID</button>
-            <button onclick="document.getElementById('payModal').style.display='none'" style="margin-top:10px; background:none; border:none; color:gray;">Back</button>
+            <h2 id="payTitle" style="font-family:'Amiri';">Secure Payment</h2>
+            <p>Total Amount: <b style="font-size:24px; color:var(--gold)">Rs. <span id="payAmt">0</span></b></p>
+            <img id="qrImg" src="" alt="Payment QR Code" width="220" height="220" style="margin:20px 0; border: 1px solid #eee;">
+            <button onclick="app.confirmOrder()" style="background:#25d366; color:white; width:100%; padding:15px; border:none; border-radius:50px; font-weight:700; cursor:pointer;">I HAVE PAID (Confirm on WA)</button>
+            <button onclick="document.getElementById('payModal').style.display='none'" style="margin-top:15px; background:none; border:none; color:#999; cursor:pointer;">Cancel</button>
         </div>
     </div>
 
-    <a href="https://wa.me/919837904369" class="wa-float">📲</a>
+    <a href="https://wa.me/919837904369" class="wa-float" aria-label="Contact us on WhatsApp">📲</a>
 
     <footer>
-        <p><b>ZAINABYA GROUP ISLAMIC</b></p>
-        <p>© 2026. All Rights Reserved.</p>
+        <div class="footer-logo" style="font-weight:700; font-size:20px;">ZAINABYA GROUP ISLAMIC</div>
+        <p>© 2026 Zainabya Group. Purely Sacred. Purely Yours.</p>
     </footer>
 
     <script>
-        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 500); });
+        // LOADER CONTROL
+        window.addEventListener('load', () => {
+            setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
+        });
 
         const app = {
             products: [
-                { id: 1, name: "SAJDAGAH (KHAQ-E-SHIFA)", price: 80, img: "SAJDAGAH.jpg", category: "Essentials", desc: "Pure soil from Karbala." },
-                { id: 2, name: "TASBEEH", price: 150, img: "TAZBEEH.jpg", category: "Tasbeeh", desc: "Crystal beads for dhikr." },
-                { id: 3, name: "ISLAMIC CLOCK", price: 650, img: "CLOCK.webp", category: "DECOR", desc: "Twelve Imams Design." },
-                { id: 4, name: "AYATAL KURSI", price: 1200, img: "https://via.placeholder.com/250?text=Frame", category: "BOOKS", desc: "Divine Throne Verse Frame." },
-                { id: 5, name: "GEMS ( NAG )", price: 2500, img: "NAGS.jpg", category: "Essentials", desc: "Authentic stones." },
-                { id: 6, name: "QURAN", price: 200, img: "QURAN.jpg", category: "BOOKS", desc: "Holy Quran." }
+                { id: 1, name: "SAJDAGAH (KHAQ-E-SHIFA)", price: 80, img: "SAJDAGAH.jpg", category: "Essentials", desc: "Pure soil from the holy land of Karbala. Authentic and sacred." },
+                { id: 2, name: "TASBEEH", price: 150, img: "TAZBEEH.jpg", category: "Tasbeeh", desc: "100 high-quality crystal beads for comfortable daily dhikr." },
+                { id: 3, name: "ISLAMIC CLOCK", price: 650, img: "CLOCK.webp", category: "DECOR", desc: "Islamic Wall Clock with Design of the Twelve Imams." },
+                { id: 4, name: "AYATAL KURSI", price: 1200, img: "https://via.placeholder.com/250?text=Frame", category: "BOOKS", desc: "Ayat al kursi - Divine Throne Verse ." },
+                { id: 5, name: "GEMS ( NAG )", price: 2500, img: "NAGS.jpg", category: "Essentials", desc: "Pure silver ring with authentic Yemeni Aqeeq stone." },
+                { id: 6, name: "QURAN", price: 200, img: "QURAN.jpg", category: "BOOKS", desc: "Compact size Holy Quran for reading." }
             ],
             cart: [],
-            currentFilter: 'All',
             init() { this.renderCatalog(this.products); },
             nav(id) {
                 document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-                document.getElementById('mainHero').style.display = (id === 'home') ? 'flex' : 'none';
+                const hero = document.getElementById('mainHero');
+                hero.style.display = (id === 'home') ? 'flex' : 'none';
                 document.getElementById('page-' + id).classList.add('active');
                 if(id === 'cart') this.renderCart();
-                window.scrollTo(0,0);
+                window.scrollTo({top: 0, behavior: 'smooth'});
             },
-            filter(cat, e) {
-                this.currentFilter = cat;
+            filter(cat) {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                this.renderCatalog(cat === 'All' ? this.products : this.products.filter(p => p.category === cat));
+                event.target.classList.add('active');
+                const filtered = cat === 'All' ? this.products : this.products.filter(p => p.category === cat);
+                this.renderCatalog(filtered);
             },
-            renderCatalog(list) {
-                document.getElementById('productGrid').innerHTML = list.map(p => {
-                    const item = this.cart.find(c => c.id === p.id);
+            renderCatalog(productList) {
+                document.getElementById('productGrid').innerHTML = productList.map(p => {
+                    const cartItem = this.cart.find(c => c.id === p.id);
+                    const qty = cartItem ? cartItem.qty : 0;
+                    
                     return `
-                    <div class="card">
+                    <article class="card">
+                        <div class="card-tag"> OFFER</div>
                         <div class="card-img-container" onclick="app.showSpec(${p.id})">
-                            <img src="${p.img}" alt="${p.name}">
+                            <img src="${p.img}" alt="${p.name}" loading="lazy">
                         </div>
-                        <div style="padding:10px;">
-                            <h4 style="font-size:13px; height:35px;">${p.name}</h4>
+                        <div style="padding:10px 20px;">
+                            <h3 style="font-size:17px; height:45px; overflow:hidden;">${p.name}</h3>
                             <span class="price">Rs. ${p.price}</span>
-                            <div id="ctrl-${p.id}">${item ? this.qtyUI(p.id, item.qty) : `<button class="btn-buy" onclick="app.add(${p.id})">ADD TO BAG</button>`}</div>
+                            <div id="btn-container-${p.id}">
+                                ${qty > 0 ? this.qtyHtml(p.id, qty) : `<button class="btn-buy" onclick="app.updateQty(${p.id}, 1)">ADD TO BAG</button>`}
+                            </div>
                         </div>
-                    </div>`;
-                }).join('');
+                    </article>
+                `}).join('');
             },
-            qtyUI(id, q) {
-                return `<div class="qty-controls">
-                    <button class="qty-btn" onclick="app.change(${id},-1)">-</button>
-                    <span style="font-weight:700">${q}</span>
-                    <button class="qty-btn" onclick="app.change(${id},1)">+</button>
-                </div>`;
+            qtyHtml(id, qty) {
+                return `
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="app.updateQty(${id}, -1)">-</button>
+                        <span class="qty-val">${qty}</span>
+                        <button class="qty-btn" onclick="app.updateQty(${id}, 1)">+</button>
+                    </div>
+                `;
             },
-            add(id) {
-                const p = this.products.find(x => x.id === id);
-                this.cart.push({...p, qty: 1});
-                this.sync(id);
-            },
-            change(id, d) {
-                const i = this.cart.findIndex(x => x.id === id);
-                this.cart[i].qty += d;
-                if(this.cart[i].qty <= 0) this.cart.splice(i, 1);
-                this.sync(id);
-            },
-            sync(id) {
-                const item = this.cart.find(x => x.id === id);
-                const ctrl = document.getElementById('ctrl-' + id);
-                if(ctrl) ctrl.innerHTML = item ? this.qtyUI(id, item.qty) : `<button class="btn-buy" onclick="app.add(${id})">ADD TO BAG</button>`;
-                document.getElementById('badge').innerText = this.cart.reduce((a,b) => a + b.qty, 0);
+            updateQty(id, delta) {
+                const product = this.products.find(p => p.id === id);
+                const index = this.cart.findIndex(c => c.id === id);
+
+                if (index > -1) {
+                    this.cart[index].qty += delta;
+                    if (this.cart[index].qty <= 0) this.cart.splice(index, 1);
+                } else if (delta > 0) {
+                    this.cart.push({...product, qty: 1});
+                }
+
+                // Update UI without full rerender
+                const container = document.getElementById(`btn-container-${id}`);
+                const newItem = this.cart.find(c => c.id === id);
+                if (container) {
+                    container.innerHTML = newItem 
+                        ? this.qtyHtml(id, newItem.qty) 
+                        : `<button class="btn-buy" onclick="app.updateQty(${id}, 1)">ADD TO BAG</button>`;
+                }
+                
+                // Update badge
+                const totalQty = this.cart.reduce((sum, item) => sum + item.qty, 0);
+                document.getElementById('badge').innerText = totalQty;
             },
             showSpec(id) {
                 const p = this.products.find(x => x.id === id);
-                const item = this.cart.find(x => x.id === id);
+                const cartItem = this.cart.find(c => c.id === id);
+                const qty = cartItem ? cartItem.qty : 0;
+
                 document.getElementById('specContent').innerHTML = `
-                    <div style="background:white; padding:20px; border-radius:20px; text-align:center;">
-                        <img src="${p.img}" style="width:100%; max-width:300px; border-radius:15px;">
-                        <h2 style="font-family:'Amiri'; margin:15px 0;">${p.name}</h2>
-                        <p style="color:#666; margin-bottom:15px;">${p.desc}</p>
-                        <div id="ctrl-spec-${p.id}">${item ? this.qtyUI(p.id, item.qty) : `<button class="btn-buy" onclick="app.add(${p.id}); app.showSpec(${p.id})">ADD TO BAG</button>`}</div>
-                        <p onclick="app.nav('catalog')" style="color:var(--gold); margin-top:20px; cursor:pointer;">← Back to Shop</p>
-                    </div>`;
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:40px; background:white; padding:40px; border-radius:30px; align-items:center;">
+                        <img src="${p.img}" alt="${p.name}" style="width:100%; border-radius:20px; border: 1px solid #eee;">
+                        <div>
+                            <span style="color:var(--gold); font-weight:700;">${p.category}</span>
+                            <h1 style="font-family:'Amiri'; font-size:40px;">${p.name}</h1>
+                            <span class="price" style="font-size:28px;">Rs. ${p.price}</span>
+                            <div style="background:#fff4f4; color:var(--offer-red); padding:10px; border-radius:10px; margin:15px 0; font-weight:700; border:1px dashed var(--offer-red);">
+                                🎁 OFFER: Buy 1 Get 1 Free Applied!
+                            </div>
+                            <p style="margin:20px 0; color:#666; font-size:17px;">${p.desc}</p>
+                            <div id="spec-btn-container">
+                                ${qty > 0 ? this.qtyHtml(p.id, qty) : `<button class="btn-buy" onclick="app.updateQty(${p.id}, 1); app.showSpec(${p.id})">ADD TO SHOPPING BAG</button>`}
+                            </div>
+                            <p style="text-align:center; color:#999; cursor:pointer; margin-top:20px;" onclick="app.nav('catalog')">← Back to Shop</p>
+                        </div>
+                    </div>
+                `;
                 this.nav('spec');
             },
             renderCart() {
-                let t = 0;
-                document.getElementById('cartList').innerHTML = this.cart.map(i => {
-                    t += i.price * i.qty;
-                    return `<div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #eee; padding:5px 0;">
-                        <span>${i.name} (x${i.qty})</span>
-                        <b>Rs. ${i.price * i.qty}</b>
-                    </div>`;
-                }).join('') || "Bag is empty";
-                document.getElementById('cartTotal').innerText = t;
+                let total = 0;
+                const list = document.getElementById('cartList');
+                if(this.cart.length === 0) {
+                    list.innerHTML = "<div style='text-align:center; padding:50px;'><p>Your bag is empty.</p></div>";
+                    document.getElementById('cartTotal').innerText = "0";
+                    return;
+                }
+                list.innerHTML = this.cart.map((i) => { 
+                    total += (i.price * i.qty); 
+                    return `
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <img src="${i.img}" width="50" height="50" style="object-fit:cover; border-radius:5px;">
+                            <div>
+                                <b>${i.name} (x${i.qty})</b><br>
+                                <small style="color:var(--offer-red)">Offer: +${i.qty} Free Units</small>
+                            </div>
+                        </div>
+                        <div style="text-align:right;">
+                            <b>Rs. ${i.price * i.qty}</b><br>
+                            <small style="color:gray; cursor:pointer;" onclick="app.updateQty(${i.id}, -${i.qty}); app.renderCart();">Remove</small>
+                        </div>
+                    </div>`; 
+                }).join('');
+                document.getElementById('cartTotal').innerText = total;
             },
             openPay() {
+                const name = document.getElementById('custName').value;
+                const phone = document.getElementById('custPhone').value;
+                const addr = document.getElementById('custAddr').value;
+                if(!name || !phone || !addr) return alert("Please fill details!");
                 const t = document.getElementById('cartTotal').innerText;
-                if(t == "0") return alert("Bag is empty!");
                 document.getElementById('payAmt').innerText = t;
-                document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9837904369@ptsbi&pn=ZainabyaGroup&am=${t}&cu=INR`;
+                document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=9837904369@ptsbi&pn=ZainabyaGroup&am=${t}&cu=INR`;
                 document.getElementById('payModal').style.display = 'flex';
             },
             confirmOrder() {
-                const msg = `Order: ${this.cart.map(i => i.name + ' x' + i.qty).join(', ')}\nTotal: Rs. ${document.getElementById('cartTotal').innerText}\nName: ${document.getElementById('custName').value}`;
+                let itemsStr = this.cart.map(i => `${i.name} (Qty: ${i.qty})`).join(', ');
+                let msg = `*NEW ORDER FROM ZAINABYA*\n\n*Items:* ${itemsStr}\n*Customer:* ${document.getElementById('custName').value}\n*Total:* Rs. ${document.getElementById('cartTotal').innerText}`;
                 window.open(`https://wa.me/919837904369?text=${encodeURIComponent(msg)}`);
             }
         };
@@ -296,5 +381,3 @@
     </script>
 </body>
 </html>
-
-
