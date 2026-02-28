@@ -119,9 +119,10 @@
 
     <header>
         <nav class="nav-container" aria-label="Main Navigation">
-            <div class="logo" onclick="app.nav('home')">
-                <img src="LOGO.png" alt="Zainabya Group Logo" width="150" height="75">
-            </div>
+          <div class="logo" onclick="app.nav('home')" style="display: flex; align-items: center; gap: 10px;">
+    <img src="LOGO.png" alt="Zainabya Group Logo" width="50" height="50">
+    <span style="font-size: 24px; font-weight: 800; color: var(--gold); letter-spacing: 2px;">ZBI</span>
+</div>
             <div class="nav-links">
                 <a onclick="app.nav('home')" role="button">Home</a>
                 <a onclick="app.nav('catalog')" role="button">Shop</a>
@@ -308,3 +309,4 @@
     </script>
 </body>
 </html>
+
