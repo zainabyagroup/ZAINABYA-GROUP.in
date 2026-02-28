@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zainabya Group Islamic | Premium Store</title>
+    <title>Zainabya Group Islamic | Premium Tasbeeh, Sajdagah & Islamic Essentials</title>
+    <meta name="description" content="Buy premium Islamic essentials at Zainabya Group. Specializing in Karbala Sajdagah, Crystal Tasbeeh, and Islamic Decor. Experience Spiritual Excellence.">
+    <meta name="keywords" content="Zainabya Group, Islamic Store, Karbala Sajdagah, Crystal Tasbeeh, Islamic Gifts Online">
+    <link rel="canonical" href="https://14starstraders.github.io/ZAINABYA-GROUP/">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --islamic-green: #004d40;
@@ -31,12 +38,11 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* HEADER - Patti ki height yahan 30px padding se badha di hai */
         header { 
             background: var(--charcoal); 
             backdrop-filter: blur(10px);
             color: white; 
-            padding: 10px 0; /* Pehle 15px tha, ab 25px hai */
+            padding: 10px 0; 
             border-bottom: 3px solid var(--gold); 
             position: sticky; 
             top: 0; 
@@ -45,9 +51,9 @@
 
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         
-        /* LOGO - Height 80px kar di hai ZGI look ke liye */
         .logo img { 
             height: 75px; 
+            width: auto;
             cursor: pointer; 
             display: block; 
             transition: 0.3s;
@@ -59,7 +65,7 @@
         /* HERO SECTION */
         .top-hero-banner { 
             width: 100%; 
-            height: 85vh; 
+            height: 100vh; 
             background: var(--charcoal); 
             position: relative; 
             overflow: hidden; 
@@ -67,42 +73,36 @@
             align-items: center; 
             justify-content: center; 
         }
-        
-       /* HERO SECTION */
-        .top-hero-banner { 
-            width: 100%; 
-            height: 140vh; /* Isse banner poori screen cover kar lega */
-            /* Agar aur bada chahiye toh 120vh kar do */
-            background: var(--charcoal); 
-            position: relative; 
-            overflow: hidden; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        @keyframes zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
-        
-        .banner-text { position: relative; z-index: 10; text-align: center; color: var(--gold); padding: 0 20px; }
-        .banner-text h1 { font-family: 'Amiri', serif; font-size: clamp(40px, 10vw, 80px); line-height: 1.1; margin-bottom: 15px; text-shadow: 3px 3px 15px rgba(0,0,0,0.8); }
-        .banner-text p { color: white; font-size: 20px; letter-spacing: 2px; margin-bottom: 30px; font-weight: 300; }
-        
-        /* CATEGORY FILTER */
-        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
-        .tab-btn { padding: 10px 20px; border: 1px solid var(--islamic-green); background: white; border-radius: 30px; cursor: pointer; font-weight: 600; color: var(--islamic-green); }
-        .tab-btn.active { background: var(--islamic-green); color: white; }
 
+        .top-hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .banner-text { position: relative; z-index: 10; text-align: center; color: var(--gold); padding: 0 20px; background: rgba(0,0,0,0.3); border-radius: 20px; padding: 20px;}
+        .banner-text h1 { font-family: 'Amiri', serif; font-size: clamp(30px, 8vw, 60px); line-height: 1.1; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .banner-text p { color: white; font-size: 18px; letter-spacing: 1px; margin-bottom: 30px; font-weight: 300; }
+        
         /* PRODUCT GRID */
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; margin-top: 10px; }
         .card { background: var(--white); border-radius: 20px; overflow: hidden; position: relative; border: 1px solid rgba(0,0,0,0.05); text-align: center; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .card:hover { transform: translateY(-10px); }
-        .card-img-container { background: #fdfdfd; padding: 20px; height: 250px; display: flex; align-items: center; justify-content: center; }
+        .card-img-container { background: #fdfdfd; padding: 20px; height: 250px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .card img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .price { color: var(--islamic-green); font-weight: 800; font-size: 22px; margin-bottom: 15px; display: block; }
         .card-tag { background: var(--offer-red); color: white; font-size: 11px; padding: 6px 15px; border-radius: 0 0 0 15px; position: absolute; top: 0; right: 0; z-index: 5; font-weight: 700; }
         .btn-buy { background: var(--islamic-green); color: white; padding: 15px 30px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; width: 90%; margin-bottom: 20px; transition: 0.3s; }
 
-        .page-view { display: none; animation: fadeIn 0.5s; }
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border: 1px solid var(--islamic-green); background: white; border-radius: 30px; cursor: pointer; font-weight: 600; color: var(--islamic-green); }
+        .tab-btn.active { background: var(--islamic-green); color: white; }
+
+        .page-view { display: none; animation: fadeIn 0.4s ease-in; }
         .active { display: block; }
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
@@ -115,88 +115,88 @@
 </head>
 <body>
 
-    <div class="bogo-banner"> RAMAZAN OFFER: BUY 1 GET 1 FREE ON EVERY PRODUCT! </div>
+    <div class="bogo-banner">RAMAZAN OFFER: BUY 1 GET 1 FREE ON EVERY PRODUCT!</div>
 
     <header>
-        <div class="nav-container">
+        <nav class="nav-container" aria-label="Main Navigation">
             <div class="logo" onclick="app.nav('home')">
-                <img src="LOGO.png" alt="ZAINABYA GROUP ISLAMIC">
+                <img src="LOGO.png" alt="Zainabya Group Logo" width="150" height="75">
             </div>
             <div class="nav-links">
-                <a onclick="app.nav('home')">Home</a>
-                <a onclick="app.nav('catalog')">Shop</a>
-                <a onclick="app.nav('cart')">🛒 Bag <span class="badge" id="badge">0</span></a>
+                <a onclick="app.nav('home')" role="button">Home</a>
+                <a onclick="app.nav('catalog')" role="button">Shop</a>
+                <a onclick="app.nav('cart')" role="button" aria-label="View Shopping Bag">🛒 Bag <span class="badge" id="badge">0</span></a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div class="top-hero-banner" id="mainHero">
-        <img src="BANNER.png" alt="Zainabya Premium Banner">
-        <div class="banner-text">
-            <h1></h1>
-            <p></p>
-        </div>
-    </div>
-
-    <section id="page-home" class="page-view active">
-        <div class="container" style="text-align:center; padding: 80px 20px;">
-            <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:40px; margin-bottom:15px;">Experience Spiritual Excellence</h2>
-            <p style="max-width:700px; margin: 0 auto 40px; color:#666; font-size:18px;">Quality and Purity guaranteed for your daily spiritual essentials.</p>
-            <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:18px 50px; border-radius:50px; font-size:18px; background:var(--gold); color:black;">SHOP COLLECTION</button>
-        </div>
-    </section>
-
-    <section id="page-catalog" class="page-view">
-        <div class="container">
-            <h2 style="text-align:center; font-family:'Amiri'; font-size:35px; margin-bottom:10px;">Our Premium Collection</h2>
-            
-            <div class="filter-tabs">
-                <button class="tab-btn active" onclick="app.filter('All')">All Items</button>
-                <button class="tab-btn" onclick="app.filter('Essentials')">Essentials</button>
-                <button class="tab-btn" onclick="app.filter('Tasbeeh')">Tasbeeh</button>
-                <button class="tab-btn" onclick="app.filter('Perfumes')">BOOKS</button>
-                <button class="tab-btn" onclick="app.filter('Decor')">Decor</button>
+    <main>
+        <section class="top-hero-banner" id="mainHero">
+            <img src="BANNER.png" alt="Zainabya Premium Islamic Banner" fetchpriority="high">
+            <div class="banner-text">
+                <h1></h1>
+                <p></p>
             </div>
+        </section>
 
-            <div id="productGrid" class="product-grid"></div>
-        </div>
-    </section>
+        <section id="page-home" class="page-view active">
+            <div class="container" style="text-align:center; padding: 80px 20px;">
+                <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:40px; margin-bottom:15px;">Experience Spiritual Excellence</h2>
+                <p style="max-width:700px; margin: 0 auto 40px; color:#666; font-size:18px;">Quality and Purity guaranteed for your daily spiritual essentials.</p>
+                <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:18px 50px; border-radius:50px; font-size:18px; background:var(--gold); color:black;" aria-label="Shop our collection">SHOP COLLECTION</button>
+            </div>
+        </section>
 
-    <section id="page-spec" class="page-view"><div class="container"><div id="specContent"></div></div></section>
-    
-    <section id="page-cart" class="page-view">
-        <div class="container" style="max-width:600px; background:white; padding:30px; border-radius:20px;">
-            <h2 style="font-family:'Amiri'; border-bottom:2px solid var(--gold); padding-bottom:10px;">Your Shopping Bag</h2>
-            <div id="cartList" style="margin-top:20px;"></div>
-            <h3 style="margin-top:20px; text-align:right;">Subtotal: Rs. <span id="cartTotal">0</span></h3>
-            <button onclick="app.nav('checkout')" class="btn-buy" style="margin-top:20px; border-radius:50px;">PROCEED TO CHECKOUT</button>
-        </div>
-    </section>
+        <section id="page-catalog" class="page-view">
+            <div class="container">
+                <h2 style="text-align:center; font-family:'Amiri'; font-size:35px; margin-bottom:10px;">Our Premium Collection</h2>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" onclick="app.filter('All')">All Items</button>
+                    <button class="tab-btn" onclick="app.filter('Essentials')">Essentials</button>
+                    <button class="tab-btn" onclick="app.filter('Tasbeeh')">Tasbeeh</button>
+                    <button class="tab-btn" onclick="app.filter('BOOKS')">Books</button>
+                    <button class="tab-btn" onclick="app.filter('DECOR')">Decor</button>
+                </div>
+                <div id="productGrid" class="product-grid"></div>
+            </div>
+        </section>
 
-    <section id="page-checkout" class="page-view">
-        <div class="container" style="max-width:500px; background:white; padding:30px; border-radius:20px;">
-            <h3 style="margin-bottom:20px; color:var(--islamic-green);">Shipping Details</h3>
-            <input type="text" id="custName" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="Full Name">
-            <input type="text" id="custPhone" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="WhatsApp Number">
-            <textarea id="custAddr" style="width:100%; padding:15px; margin-bottom:20px; border-radius:10px; border:1px solid #ddd; height:100px;" placeholder="Full Address with Pincode"></textarea>
-            <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
-        </div>
-    </section>
+        <section id="page-spec" class="page-view"><div class="container"><div id="specContent"></div></div></section>
+        
+        <section id="page-cart" class="page-view">
+            <div class="container" style="max-width:600px; background:white; padding:30px; border-radius:20px;">
+                <h2 style="font-family:'Amiri'; border-bottom:2px solid var(--gold); padding-bottom:10px;">Your Shopping Bag</h2>
+                <div id="cartList" style="margin-top:20px;"></div>
+                <h3 style="margin-top:20px; text-align:right;">Subtotal: Rs. <span id="cartTotal">0</span></h3>
+                <button onclick="app.nav('checkout')" class="btn-buy" style="margin-top:20px; border-radius:50px;">PROCEED TO CHECKOUT</button>
+            </div>
+        </section>
 
-    <div id="payModal">
+        <section id="page-checkout" class="page-view">
+            <div class="container" style="max-width:500px; background:white; padding:30px; border-radius:20px;">
+                <h3 style="margin-bottom:20px; color:var(--islamic-green);">Shipping Details</h3>
+                <input type="text" id="custName" aria-label="Full Name" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="Full Name">
+                <input type="tel" id="custPhone" aria-label="WhatsApp Number" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="WhatsApp Number">
+                <textarea id="custAddr" aria-label="Address" style="width:100%; padding:15px; margin-bottom:20px; border-radius:10px; border:1px solid #ddd; height:100px;" placeholder="Full Address with Pincode"></textarea>
+                <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="payModal" role="dialog" aria-labelledby="payTitle">
         <div class="pay-card">
-            <h2 style="font-family:'Amiri';">Secure Payment</h2>
+            <h2 id="payTitle" style="font-family:'Amiri';">Secure Payment</h2>
             <p>Total Amount: <b style="font-size:24px; color:var(--gold)">Rs. <span id="payAmt">0</span></b></p>
-            <img id="qrImg" src="" width="220" style="margin:20px 0; border: 1px solid #eee;">
+            <img id="qrImg" src="" alt="Payment QR Code" width="220" height="220" style="margin:20px 0; border: 1px solid #eee;">
             <button onclick="app.confirmOrder()" style="background:#25d366; color:white; width:100%; padding:15px; border:none; border-radius:50px; font-weight:700; cursor:pointer;">I HAVE PAID (Confirm on WA)</button>
-            <p onclick="document.getElementById('payModal').style.display='none'" style="margin-top:15px; cursor:pointer; font-size:12px; color:#999;">Cancel</p>
+            <button onclick="document.getElementById('payModal').style.display='none'" style="margin-top:15px; background:none; border:none; color:#999; cursor:pointer;">Cancel</button>
         </div>
     </div>
 
-    <a href="https://wa.me/919837904369" class="wa-float">📲</a>
+    <a href="https://wa.me/919837904369" class="wa-float" aria-label="Contact us on WhatsApp">📲</a>
 
     <footer>
-        <div class="footer-logo">ZAINABYA GROUP ISLAMIC</div>
+        <div class="footer-logo" style="font-weight:700; font-size:20px;">ZAINABYA GROUP ISLAMIC</div>
         <p>© 2026 Zainabya Group. Purely Sacred. Purely Yours.</p>
     </footer>
 
@@ -209,7 +209,6 @@
                 { id: 4, name: "AYATAL KURSI", price: 1200, img: "https://via.placeholder.com/250?text=Frame", category: "BOOKS", desc: "Ayat al kursi - Divine Throne Verse ." },
                 { id: 5, name: "GEMS ( NAG )", price: 2500, img: "NAGS.jpg", category: "Essentials", desc: "Pure silver ring with authentic Yemeni Aqeeq stone." },
                 { id: 6, name: "QURAN", price: 200, img: "QURAN.jpg", category: "BOOKS", desc: "Compact size Holy Quran for reading." }
-               
             ],
             cart: [],
             init() { this.renderCatalog(this.products); },
@@ -222,33 +221,31 @@
                 window.scrollTo({top: 0, behavior: 'smooth'});
             },
             filter(cat) {
-                const btns = document.querySelectorAll('.tab-btn');
-                btns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 event.target.classList.add('active');
-                
                 const filtered = cat === 'All' ? this.products : this.products.filter(p => p.category === cat);
                 this.renderCatalog(filtered);
             },
             renderCatalog(productList) {
                 document.getElementById('productGrid').innerHTML = productList.map(p => `
-                    <div class="card">
-                        <div class="card-tag">BOGO OFFER</div>
+                    <article class="card">
+                        <div class="card-tag"> OFFER</div>
                         <div class="card-img-container" onclick="app.showSpec(${p.id})">
-                            <img src="${p.img}">
+                            <img src="${p.img}" alt="${p.name}" loading="lazy">
                         </div>
                         <div style="padding:10px 20px;">
                             <h3 style="font-size:17px; height:45px; overflow:hidden;">${p.name}</h3>
                             <span class="price">Rs. ${p.price}</span>
-                            <button class="btn-buy" onclick="app.addToCart(${p.id})">ADD TO BAG</button>
+                            <button class="btn-buy" onclick="app.addToCart(${p.id})" aria-label="Add ${p.name} to bag">ADD TO BAG</button>
                         </div>
-                    </div>
+                    </article>
                 `).join('');
             },
             showSpec(id) {
                 const p = this.products.find(x => x.id === id);
                 document.getElementById('specContent').innerHTML = `
                     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:40px; background:white; padding:40px; border-radius:30px; align-items:center;">
-                        <img src="${p.img}" style="width:100%; border-radius:20px; border: 1px solid #eee;">
+                        <img src="${p.img}" alt="${p.name}" style="width:100%; border-radius:20px; border: 1px solid #eee;">
                         <div>
                             <span style="color:var(--gold); font-weight:700;">${p.category}</span>
                             <h1 style="font-family:'Amiri'; font-size:40px;">${p.name}</h1>
@@ -274,21 +271,15 @@
                 let t = 0;
                 const list = document.getElementById('cartList');
                 if(this.cart.length === 0) {
-                    list.innerHTML = "<div style='text-align:center; padding:50px;'><p>Your bag is empty.</p><button onclick='app.nav(\"catalog\")' style='margin-top:10px; color:var(--islamic-green); border:none; background:none; cursor:pointer; text-decoration:underline;'>Start Shopping</button></div>";
+                    list.innerHTML = "<div style='text-align:center; padding:50px;'><p>Your bag is empty.</p></div>";
                     document.getElementById('cartTotal').innerText = "0";
                     return;
                 }
                 list.innerHTML = this.cart.map((i, index) => { 
                     t += i.price; 
                     return `<div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
-                        <div>
-                            <b style="font-size:15px;">${i.name}</b><br>
-                            <small style="color:var(--offer-red)">Offer: +1 Free Unit</small>
-                        </div>
-                        <div style="text-align:right;">
-                            <b>Rs. ${i.price}</b><br>
-                            <small style="color:gray; cursor:pointer;" onclick="app.removeItem(${index})">Remove</small>
-                        </div>
+                        <div><b>${i.name}</b><br><small style="color:var(--offer-red)">Offer: +1 Free Unit</small></div>
+                        <div style="text-align:right;"><b>Rs. ${i.price}</b><br><small style="color:gray; cursor:pointer;" onclick="app.removeItem(${index})">Remove</small></div>
                     </div>`; 
                 }).join('');
                 document.getElementById('cartTotal').innerText = t;
@@ -302,28 +293,18 @@
                 const name = document.getElementById('custName').value;
                 const phone = document.getElementById('custPhone').value;
                 const addr = document.getElementById('custAddr').value;
-                if(!name || !phone || !addr) return alert("Please fill all delivery details!");
-                
+                if(!name || !phone || !addr) return alert("Please fill details!");
                 const t = document.getElementById('cartTotal').innerText;
                 document.getElementById('payAmt').innerText = t;
                 document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=9837904369@ptsbi&pn=ZainabyaGroup&am=${t}&cu=INR`;
                 document.getElementById('payModal').style.display = 'flex';
             },
             confirmOrder() {
-                let msg = `*NEW ORDER FROM WEBSITE*\n\n*Customer:* ${document.getElementById('custName').value}\n*Phone:* ${document.getElementById('custPhone').value}\n*Address:* ${document.getElementById('custAddr').value}\n\n*Items:*`;
-                this.cart.forEach(i => { msg += `\n- ${i.name} (BOGO applied)`; });
-                msg += `\n\n*Total Amount:* Rs. ${document.getElementById('cartTotal').innerText}\n*Status:* Payment Completed via QR`;
-                
+                let msg = `*NEW ORDER*\n\n*Customer:* ${document.getElementById('custName').value}\n*Total:* Rs. ${document.getElementById('cartTotal').innerText}`;
                 window.open(`https://wa.me/919837904369?text=${encodeURIComponent(msg)}`);
-                location.reload();
             }
         };
         app.init();
     </script>
 </body>
 </html>
-
-
-
-
-
