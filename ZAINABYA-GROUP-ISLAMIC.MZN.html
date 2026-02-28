@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zainabya Group Islamic | BOGO Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --islamic-green: #004d40;
+            --gold: #d4af37;
+            --cream: #fffdf5;
+            --offer-red: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+        body { background-color: var(--cream); color: #333; overflow-x: hidden; }
+
+        /* 1. TOP RED BOGO STRIP */
+        .bogo-banner { 
+            background: var(--offer-red); 
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+            font-weight: bold; 
+            font-size: clamp(10px, 3vw, 14px); 
+            letter-spacing: 1px;
+            z-index: 1002;
+        }
+
+        /* 2. DARK GREEN HEADER */
+        header { 
+            background: var(--islamic-green); 
+            color: white; 
+            padding: 15px 0; 
+            border-bottom: 2px solid var(--gold); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1001; 
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-family: 'Amiri', serif; font-size: 22px; font-weight: 700; color: var(--gold); cursor: pointer; text-decoration: none; }
+        .nav-links a { color: white; text-decoration: none; font-size: 13px; font-weight: 600; cursor: pointer; margin-left: 15px; }
+        .badge { background: var(--gold); color: white; padding: 2px 7px; border-radius: 50%; font-size: 11px; }
+
+        /* 3. HERO BANNER */
+        .top-hero-banner {
+            width: 100%;
+            background: #000;
+            position: relative;
+            border-bottom: 3px solid var(--gold);
+            text-align: center;
+            display: block; /* Default dikhega */
+        }
+        .top-hero-banner img {
+            width: 100%;
+            height: auto;
+            max-height: 550px; 
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7);
+        }
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            color: var(--gold);
+        }
+        .banner-text h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(28px, 8vw, 65px);
+            text-transform: uppercase;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.9);
+        }
+
+        /* Content Styling */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; position: relative; border: 1px solid #eee; text-align: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 200px; object-fit: contain; padding: 15px; }
+        .price { color: var(--gold); font-weight: 700; font-size: 20px; margin-bottom: 10px; display: block; }
+        .card-tag { background: var(--offer-red); color: white; font-size: 10px; padding: 5px 12px; border-radius: 20px; position: absolute; top: 10px; right: 10px; z-index: 5; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
+
+        .btn-buy { background: var(--islamic-green); color: white; padding: 15px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; font-size: 15px; }
+        .btn-buy:hover { background: var(--gold); }
+        
+        .page-view { display: none; }
+        .active { display: block; }
+        
+        #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; }
+        .pay-card { background: white; padding:25px; border-radius:20px; text-align:center; max-width:380px; width:95%; border-top: 8px solid var(--gold); }
+
+        @media (max-width: 768px) { .top-hero-banner img { height: 300px; } }
+    </style>
+</head>
+<body>
+
+    <div class="bogo-banner">✨ MUBARAK OFFER: BUY 1 GET 1 FREE ON EVERY PRODUCT! ✨</div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo" onclick="app.nav('home')">ZAINABYA GROUP ISLAMICs</div>
+            <div class="nav-links">
+                <a onclick="app.nav('home')">Home</a>
+                <a onclick="app.nav('catalog')">Shop</a>
+                <a onclick="app.nav('cart')">🛒 Bag <span class="badge" id="badge">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="top-hero-banner" id="mainHero">
+        <img src="banner.png" alt="Zainabya Banner">
+        <div class="banner-text">
+            <h1>ZGI PREMIUM</h1> <p>Quality You Can Trust</p>
+        </div>
+    </div>
+
+    <section id="page-home" class="page-view active">
+        <div class="container" style="text-align:center; padding-top:40px;">
+            <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:32px;">Authentic Islamic Shopping</h2>
+            <p style="margin:10px 0 25px; color:#666;">Experience the purity of Karbala at your doorstep.</p>
+            <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:15px 40px; border-radius:30px;">SHOP ALL PRODUCTS (BUY 1 GET 1 FREE)</button>
+        </div>
+    </section>
+
+    <section id="page-catalog" class="page-view">
+        <div class="container">
+            <h2 style="text-align:center; font-family:'Amiri'; font-size:30px; margin-bottom:20px;">Our Collection</h2>
+            <div id="productGrid" class="product-grid"></div>
+        </div>
+    </section>
+
+    <div id="payModal">
+        <div class="pay-card">
+            <h2 style="color:var(--islamic-green); font-family:'Amiri'">Complete Payment</h2>
+            <p>Amount: <b style="font-size:24px; color:var(--gold)">Rs. <span id="payAmt">0</span></b></p>
+            <img id="qrImg" src="" width="200" style="margin:15px 0;">
+            <button onclick="app.confirmOrder()" style="background:#25d366; color:white; width:100%; padding:12px; border:none; border-radius:10px; font-weight:700;">I HAVE PAID (Confirm Order)</button>
+            <p onclick="document.getElementById('payModal').style.display='none'" style="margin-top:10px; cursor:pointer; opacity:0.5; font-size:12px;">Cancel</p>
+        </div>
+    </div>
+
+    <section id="page-spec" class="page-view"><div class="container"><div id="specContent" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:30px;"></div></div></section>
+    <section id="page-cart" class="page-view"><div class="container" style="max-width:600px;"><h2 style="font-family:'Amiri'; font-size:28px; border-bottom:2px solid var(--gold); padding-bottom:10px;">Your Bag</h2><div id="cartList" style="margin-top:20px;"></div><div style="text-align:right; margin-top:25px;"><h3>Total: Rs. <span id="cartTotal">0</span></h3><button onclick="app.nav('checkout')" class="btn-buy" style="width:auto; padding:15px 40px; margin-top:15px;">CHECKOUT</button></div></div></section>
+    <section id="page-checkout" class="page-view"><div class="container"><div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;"><div style="background:white; padding:20px; border-radius:12px; border:1px solid #eee;"><h3 style="color:var(--islamic-green); margin-bottom:12px;">Delivery Address</h3><input type="text" id="custName" style="width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px;" placeholder="Your Name"><input type="text" id="custPhone" style="width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px;" placeholder="WhatsApp No."><input type="text" id="custAddr" style="width:100%; padding:12px; margin:8px 0; border:1px solid #ddd; border-radius:8px;" placeholder="Complete Address"><button onclick="app.openPay()" class="btn-buy">PROCEED TO PAY</button></div><div style="background:white; padding:20px; border-radius:12px; border:1px solid #eee;"><h3>Summary</h3><div id="sumList"></div><div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;"><p style="display:flex; justify-content:space-between; font-size:18px; font-weight:800; color:var(--islamic-green);"><span>Total:</span><span>Rs. <span id="sumTotal">0</span></span></p></div></div></div></div></section>
+
+    <script>
+        const app = {
+            products: [
+                { id: 1, name: "SAJDAGAH (Khaq-e-Shifa)", price: 50, img: "SAJDAGAH.JPG", desc: "Crafted from pure Karbala soil blend." },
+                { id: 2, name: "Crystal Tasbeeh (100)", price: 150, img: "https://via.placeholder.com/200?text=Tasbeeh", desc: "100 beads for daily dhikr." },
+                { id: 3, name: "Ayatul Kursi Frame", price: 1200, img: "https://via.placeholder.com/200?text=Frame", desc: "Protection and barakah for home." }
+            ],
+            cart: [],
+            init() { this.renderCatalog(); },
+            
+            // NAVIGATION LOGIC UPDATED
+            nav(id) {
+                // Sari pages hide karo
+                document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+                
+                // Hero Banner control
+                const hero = document.getElementById('mainHero');
+                if(id === 'home') {
+                    hero.style.display = 'block'; // Home par dikhao
+                } else {
+                    hero.style.display = 'none';  // Baki sab pages par chhupao
+                }
+
+                document.getElementById('page-' + id).classList.add('active');
+                if(id === 'cart') this.renderCart();
+                if(id === 'checkout') this.renderSummary();
+                window.scrollTo(0,0);
+            },
+
+            renderCatalog() {
+                document.getElementById('productGrid').innerHTML = this.products.map(p => `
+                    <div class="card" onclick="app.showSpec(${p.id})">
+                        <div class="card-tag">BOGO OFFER</div>
+                        <img src="${p.img}">
+                        <div style="padding:15px;">
+                            <h3 style="font-size:16px;">${p.name}</h3>
+                            <span class="price">Rs. ${p.price}</span>
+                        </div>
+                    </div>
+                `).join('');
+            },
+            showSpec(id) {
+                const p = this.products.find(x => x.id === id);
+                document.getElementById('specContent').innerHTML = `
+                    <div style="background:white; padding:20px; border-radius:20px; text-align:center;"><img src="${p.img}" style="max-width:100%;"></div>
+                    <div><h1 style="font-family:'Amiri'; font-size:32px; color:var(--islamic-green)">${p.name}</h1><span class="price">Rs. ${p.price}</span><p style="margin:15px 0; color:#666;">${p.desc}</p><p style="color:red; font-weight:bold;">🎁 BUY 1 GET 1 FREE APPLIED</p><button class="btn-buy" onclick="app.addToCart(${p.id})">ADD TO BAG</button></div>
+                `;
+                this.nav('spec');
+            },
+            addToCart(id) {
+                const p = this.products.find(x => x.id === id);
+                const exist = this.cart.find(x => x.id === id);
+                if(exist) exist.q++; else this.cart.push({...p, q:1});
+                document.getElementById('badge').innerText = this.cart.reduce((s,i) => s+i.q, 0);
+                alert("JazakAllah! Item and its Free unit added to Bag.");
+            },
+            renderCart() {
+                let t = 0;
+                document.getElementById('cartList').innerHTML = this.cart.map(i => { t += i.price * i.q; return `<div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;"><span><b>${i.name}</b> (Qty: ${i.q} + ${i.q} Free)</span><b>Rs. ${i.price * i.q}</b></div>`; }).join('');
+                document.getElementById('cartTotal').innerText = t;
+            },
+            renderSummary() {
+                let t = 0;
+                document.getElementById('sumList').innerHTML = this.cart.map(i => { t += i.price * i.q; return `<div style="display:flex; justify-content:space-between;"><span>${i.name} x ${i.q}</span><span>Rs. ${i.price * i.q}</span></div>`; }).join('');
+                document.getElementById('sumTotal').innerText = t;
+            },
+            openPay() {
+                if(!document.getElementById('custName').value) return alert("Please enter your name.");
+                const t = document.getElementById('sumTotal').innerText;
+                document.getElementById('payAmt').innerText = t;
+                const upi = `upi://pay?pa=9837904369@ptsbi&pn=ZAINABYA&am=${t}&cu=INR`;
+                document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upi)}`;
+                document.getElementById('payModal').style.display = 'flex';
+            },
+            confirmOrder() {
+                let msg = `*ZAINABYA ORDER*\n*Name:* ${document.getElementById('custName').value}\n*Amount:* Rs.${document.getElementById('payAmt').innerText}\n\n*Items:*`;
+                this.cart.forEach(i => { msg += `\n- ${i.name} (${i.q} + ${i.q} FREE)`; });
+                window.open(`https://wa.me/919837904369?text=${encodeURIComponent(msg)}`);
+                location.reload();
+            }
+        };
+        app.init();
+    </script>
+</body>
+</html>
