@@ -130,6 +130,70 @@
         
         #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; }
         .pay-card { background: white; padding:30px; border-radius:25px; text-align:center; max-width:400px; width:90%; border-top: 10px solid var(--gold); }
+        /* --- Naya Founder aur Footer Section ka Design --- */
+
+.founder-section { 
+    background: #fdfdfd; 
+    padding: 80px 20px; 
+    border-top: 1px solid #eee; 
+    border-bottom: 1px solid #eee; 
+}
+
+.founder-container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.founder-img { 
+    width: 240px; 
+    height: 240px; 
+    border-radius: 50%; 
+    border: 15px solid #d4c82d; 
+    object-fit: cover; 
+}
+
+.vertical-line { 
+    width: 2px; 
+    height: 140px; 
+    background: #000; 
+}
+
+.founder-text { 
+    flex: 1; 
+    min-width: 300px; 
+    text-align: left; 
+}
+
+.main-footer { 
+    background: #2a3038; 
+    color: white; 
+    padding: 60px 20px; 
+}
+
+.footer-grid { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 40px; 
+}
+
+/* Mobile ke liye settings */
+@media (max-width: 768px) {
+    .founder-container { text-align: center; }
+    .vertical-line { display: none; } /* Mobile pe kaali line hat jayegi */
+    .founder-text { text-align: center; }
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    .footer-grid div { text-align: center !important; }
+}
     </style>
 </head>
 <body>
@@ -169,6 +233,26 @@
                 <h2 style="font-family:'Amiri'; color:var(--islamic-green); font-size:40px; margin-bottom:15px;">Experience Spiritual Excellence</h2>
                 <p style="max-width:700px; margin: 0 auto 40px; color:#666; font-size:18px;">Quality and Purity guaranteed for your daily spiritual essentials.</p>
                 <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:18px 50px; border-radius:50px; font-size:18px; background:var(--gold); color:black;" aria-label="Shop our collection">SHOP COLLECTION</button>
+                <section style="background: #fdfdfd; padding: 60px 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center;">
+        
+        <div style="position: relative;">
+            <img src="https://14starstraders.github.io/ZAINABYA-GROUP/founder.png" 
+                 alt="Sagar Wasti" 
+                 style="width: 220px; height: 220px; border-radius: 50%; border: 12px solid #d4c82d; object-fit: cover;">
+        </div>
+
+        <div class="desktop-line" style="width: 2px; height: 120px; background: #000;"></div>
+
+        <div style="flex: 1; min-width: 300px; text-align: left;">
+            <h2 style="font-size: 32px; font-weight: 800; color: #1a1a1a; margin-bottom: 5px;">Sagar Wasti</h2>
+            <span style="color: #888; font-weight: 500; display: block; margin-bottom: 15px;">Founder</span>
+            <p style="font-size: 16px; line-height: 1.7; color: #333;">
+                Ek choti si koshish jo ab ek mission ban chuki hai. Milawat ke daur mein, asli masalon ka wahi purana swad wapas la raha hai—<b>Hind Zaiqa</b>.
+            </p>
+        </div>
+    </div>
+</section>
             </div>
         </section>
 
@@ -220,10 +304,40 @@
 
     <a href="https://wa.me/919837904369" class="wa-float" aria-label="Contact us on WhatsApp">📲</a>
 
-    <footer>
-        <div class="footer-logo" style="font-weight:700; font-size:20px;">ZAINABYA GROUP ISLAMIC</div>
-        <p>© 2026 Zainabya Group. Purely Sacred. Purely Yours.</p>
-    </footer>
+  <footer style="background: #2a3038; color: white; padding: 60px 20px; margin-top: 50px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+        
+        <div style="text-align: left;">
+            <div style="font-size: 22px; font-weight: 800; color: #d4af37; margin-bottom: 20px; text-transform: uppercase;">
+                MEHDI FOOD AND SPICES
+            </div>
+            <p style="margin-bottom: 10px; font-size: 15px; line-height: 1.6;">
+                <strong>Address:</strong><br>
+                Khasra No. 3177M, South Krishnapuri,<br>
+                Muzaffarnagar, Uttar Pradesh - 251001
+            </p>
+            <p style="font-size: 15px; margin-top: 15px;">
+                <i class="fa fa-phone"></i> <b>Phone:</b> +91 8477 90 91 92
+            </p>
+            <p style="font-size: 15px;">
+                <i class="fa fa-envelope"></i> <b>Email:</b> hindzaiqa@gmail.com
+            </p>
+        </div>
+
+        <div style="text-align: right;">
+            <h3 style="font-size: 20px; margin-bottom: 20px;">Contact Us</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="https://wa.me/919837904369" style="color: #bbb; text-decoration: none; font-weight: 600; font-size: 14px;">WHATSAPP</a>
+                <a href="#" style="color: #bbb; text-decoration: none; font-weight: 600; font-size: 14px;">INSTAGRAM</a>
+                <a href="#" style="color: #bbb; text-decoration: none; font-weight: 600; font-size: 14px;">FACEBOOK</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #444; font-size: 12px; opacity: 0.6;">
+        © 2026 Zainabya Group Islamic | Purely Sacred. Purely Yours.
+    </div>
+</footer>
 
     <script>
         // LOADER CONTROL
@@ -382,7 +496,6 @@
     </script>
 </body>
 </html>
-
 
 
 
