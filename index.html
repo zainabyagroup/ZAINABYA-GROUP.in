@@ -251,6 +251,7 @@
             <a onclick="app.nav('home')">Home</a>
             <a onclick="app.nav('catalog')">Shop</a>
             <a onclick="app.nav('cart')">🛒 CART <span class="badge" id="badge">0</span></a>
+            <a onclick="app.nav('account')">👤 Account</a>
         </div>
     </nav>
 </header>
@@ -333,6 +334,25 @@
                 <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
             </div>
         </section>
+        <section id="page-account" class="page-view">
+    <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
+        <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
+
+        <!-- Google Login Button -->
+        <button onclick="googleLogin()" class="btn-buy">
+            🔵 Login with Google
+        </button>
+
+        <!-- Logout Button -->
+        <button onclick="logout()" 
+            style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">
+            Logout
+        </button>
+
+        <!-- User Info -->
+        <p id="userInfo" style="margin-top:15px;"></p>
+    </div>
+</section>
     </main>
 
     <div id="payModal" role="dialog" aria-labelledby="payTitle">
@@ -345,7 +365,7 @@
         </div>
     </div>
 
-    <a href="https://wa.me/919837904369" class="wa-float" aria-label="Contact us on WhatsApp">📲</a>
+   <a class="wa-float" onclick="openContactPopup()" aria-label="Contact us">📲</a>
 
   <footer style="background: #2a3038; color: white; padding: 60px 20px; margin-top: 50px;">
     <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
@@ -391,7 +411,29 @@
         © 2026 Zainabya Group Islamic | Purely Sacred. Purely Yours.
     </div>
 </footer>
+<!-- CONTACT POPUP -->
+<div id="contactPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center;">
+    
+    <div style="background:white; width:90%; max-width:500px; padding:25px; border-radius:15px; position:relative;">
+        
+        <span onclick="closeContactPopup()" style="position:absolute; right:15px; top:10px; font-size:22px; cursor:pointer;">✖</span>
 
+        <h3 style="margin-bottom:15px; color:var(--islamic-green);">Get in Touch</h3>
+
+        <input type="text" placeholder="Name" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
+        
+        <input type="email" placeholder="Email *" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
+        
+        <input type="text" placeholder="Phone number" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
+        
+        <textarea placeholder="Comment" style="width:100%; padding:12px; height:100px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd;"></textarea>
+
+        <button style="width:100%; padding:12px; background:var(--gold); border:none; border-radius:8px; font-weight:700; cursor:pointer;">
+            Send
+        </button>
+
+    </div>
+</div>
     <script>
         // LOADER CONTROL
         window.addEventListener('load', () => {
@@ -492,9 +534,10 @@
                             </div>
                             <p style="margin:20px 0; color:#666; font-size:17px;">${p.desc}</p>
                             <div id="spec-btn-container">
-                                ${qty > 0 ? this.qtyHtml(p.id, qty) : `<button class="btn-buy" onclick="app.updateQty(${p.id}, 1); app.showSpec(${p.id})">ADD TO SHOPPING CART</button>`}
-                            </div>
-                            <p style="text-align:center; color:#999; cursor:pointer; margin-top:20px;" onclick="app.nav('catalog')">← Back to Shop</p>
+    ${this.qtyHtml(p.id, qty)}
+</div>
+<p style="text-align:center; color:#999; cursor:pointer; margin-top:20px;" onclick="app.nav('catalog')">← Back to Shop</p>
+      
                         </div>
                     </div>
                 `;
@@ -554,11 +597,20 @@
             }
         };
         app.init();
+
+function openContactPopup() {
+    document.getElementById('contactPopup').style.display = 'flex';
+}
+
+function closeContactPopup() {
+    document.getElementById('contactPopup').style.display = 'none';
+}
+</script>
     </script>
     <div class="mobile-nav" style="position: fixed; bottom: 0; left: 0; width: 100%; background: var(--charcoal); display: none; justify-content: space-around; padding: 15px; border-top: 2px solid var(--gold); z-index: 9999;">
     <span onclick="app.nav('home')" style="font-size: 24px; cursor: pointer;">🏠</span>
     <span onclick="app.nav('catalog')" style="font-size: 24px; cursor: pointer;">🛍️</span>
-    <span onclick="app.nav('cart')" style="font-size: 24px; cursor: pointer;">🛒</span>
+  <a onclick="app.nav('account')">👤 Account</a>
 </div>
 
 <style>
@@ -569,6 +621,52 @@
         body { padding-bottom: 70px; } /* Niche jagah chhodne ke liye */
     }
 </style>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
+    authDomain: "stars-traders.firebaseapp.com",
+    projectId: "stars-traders",
+    storageBucket: "stars-traders.firebasestorage.app",
+    messagingSenderId: "772811314274",
+    appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
+    measurementId: "G-XZ7Z2TH6H3"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  function googleLogin() {
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        document.getElementById("userInfo").innerHTML =
+          "✅ Welcome " + result.user.displayName;
+      })
+      .catch((error) => {
+        document.getElementById("userInfo").innerHTML =
+          "❌ " + error.message;
+      });
+  }
+
+  function logout() {
+    auth.signOut().then(() => {
+      document.getElementById("userInfo").innerHTML = "👋 Logged Out";
+    });
+  }
+
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      document.getElementById("userInfo").innerHTML =
+        "✅ Logged in as: " + user.displayName;
+    } else {
+      document.getElementById("userInfo").innerHTML =
+        "Please login";
+    }
+  });
+</script>
+
 </body>
 </html>
 
@@ -586,4 +684,3 @@
 
 
 s
-
