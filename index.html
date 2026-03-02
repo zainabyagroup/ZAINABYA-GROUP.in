@@ -401,8 +401,14 @@
     <section id="page-account" class="page-view account-bg">
    <div class="login-card">
        <h2>Welcome Back 👋</h2>
-       <button class="google-btn">Login with Google</button>
-       <button class="logout-btn">Logout</button>
+    <button class="google-btn" onclick="googleLogin()">
+Login with Google
+</button>
+
+<button class="logout-btn" onclick="logout()">
+Logout
+</button>
+<div id="userInfo" style="margin-top:15px; font-weight:600;"></div>
    </div>
 </section>
     </main>
