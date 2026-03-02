@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -751,10 +753,7 @@ function closeContactPopup() {
         document.getElementById("userInfo").innerHTML =
           "✅ Welcome " + result.user.displayName;
       })
-      .catch((error) => {
-        document.getElementById("userInfo").innerHTML =
-          "❌ " + error.message;
-      });
+      
   }
 
   function logout() {
@@ -769,13 +768,13 @@ function closeContactPopup() {
         "✅ Logged in as: " + user.displayName;
     } else {
       document.getElementById("userInfo").innerHTML =
-        "";
+      "";
+       
     }
   });
 </script>
-</body>
+</body
 </html>
-
 
 
 
