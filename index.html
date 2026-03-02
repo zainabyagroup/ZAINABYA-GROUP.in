@@ -29,7 +29,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         body { background-color: var(--cream); color: #333; line-height: 1.6; }
 
-        /* SPINNING WHEEL LOADER */
+        
         #loader {
             position: fixed; inset: 0; background: var(--cream); z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -80,14 +80,14 @@
 
       .top-hero-banner { 
     width: 100%; 
-    height: auto; /* Height auto karo taaki photo na kate */
+    height: auto; 
     background: var(--charcoal); 
 }
 
 .top-hero-banner img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Isse photo kabhi nahi kategi */
+    object-fit: contain;
     display: block;
 }
         
@@ -95,7 +95,7 @@
         .banner-text h1 { font-family: 'Amiri', serif; font-size: clamp(30px, 8vw, 60px); line-height: 1.1; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .banner-text p { color: white; font-size: 18px; letter-spacing: 1px; margin-bottom: 30px; font-weight: 300; }
         
-        /* PRODUCT GRID */
+
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; margin-top: 10px; }
         .card { background: var(--white); border-radius: 20px; overflow: hidden; position: relative; border: 1px solid rgba(0,0,0,0.05); text-align: center; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -109,7 +109,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f5f5f5; /* Light grey background jaisa image mein hai */
+    background: #f5f5f5; 
     border-radius: 12px;
     padding: 5px;
     width: 90%;
@@ -147,7 +147,7 @@
         
         #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; }
         .pay-card { background: white; padding:30px; border-radius:25px; text-align:center; max-width:400px; width:90%; border-top: 10px solid var(--gold); }
-        /* --- Naya Founder aur Footer Section ka Design --- */
+        
 
 .founder-section { 
     background: #fdfdfd; 
@@ -201,27 +201,27 @@
 }
 
 @media (max-width: 600px) {
-    /* Mobile par 1 ki jagah 2 columns */
+  
     .product-grid { 
         grid-template-columns: repeat(2, 1fr); 
-        gap: 10px; /* Thoda gap kam kiya taaki fit aaye */
+        gap: 10px; 
         padding: 10px;
     }
     
     .product-card {
-        padding: 10px; /* Card ki padding thodi kam */
+        padding: 10px; 
     }
 
     .product-card img {
-        height: 150px; /* Choti screen par image height set ki */
+        height: 150px; 
     }
 
     .product-card h3 {
-        font-size: 14px; /* Text thoda chota kiya taaki 2nd line mein na bhage */
+        font-size: 14px; 
     }
 
     .qty-controls {
-        gap: 10px; /* Buttons ke beech ka gap kam kiya */
+        gap: 10px; 
         padding: 5px;
     }
 
@@ -242,7 +242,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Glass Card */
+
 .login-card{
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(15px);
@@ -254,14 +254,14 @@
     color:white;
 }
 
-/* Heading */
+
 .login-card h2{
     margin-bottom:20px;
     font-size:24px;
     font-weight:600;
 }
 
-/* Buttons */
+
 .login-card button{
     width:100%;
     padding:12px;
@@ -273,7 +273,7 @@
     transition:0.3s;
 }
 
-/* Google Button */
+
 .google-btn{
     background:white;
     color:#333;
@@ -284,7 +284,7 @@
     transform:scale(1.05);
 }
 
-/* Logout Button */
+
 .logout-btn{
     background:#ff4b2b;
     color:white;
@@ -438,18 +438,17 @@
     <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
         <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
 
-        <!-- Google Login Button -->
+       
         <button onclick="googleLogin()" class="btn-buy">
             🔵 Login with Google
         </button>
 
-        <!-- Logout Button -->
+       
         <button onclick="logout()" 
             style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">
             Logout
         </button>
 
-        <!-- User Info -->
         <p id="userInfo" style="margin-top:15px;"></p>
     </div>
 </section>
@@ -512,7 +511,7 @@
         © 2026 Zainabya Group Islamic | Purely Sacred. Purely Yours.
     </div>
 </footer>
-<!-- CONTACT POPUP -->
+
 <div id="contactPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center;">
     
     <div style="background:white; width:90%; max-width:500px; padding:25px; border-radius:15px; position:relative;">
@@ -536,7 +535,7 @@
     </div>
 </div>
     <script>
-        // LOADER CONTROL
+        
         window.addEventListener('load', () => {
             setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
         });
@@ -558,7 +557,7 @@
     hero.style.display = (id === 'home') ? 'flex' : 'none';
     document.getElementById('page-' + id).classList.add('active');
     
-    // ADD/REMOVE BODY CLASS
+ 
     if(id === 'home') document.body.classList.add('home');
     else document.body.classList.remove('home');
 
@@ -567,7 +566,7 @@
 },
            filter(cat, event) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    if(event) event.target.classList.add('active'); // ✅ safely add active class
+    if(event) event.target.classList.add('active'); s
     const filtered = cat === 'All' ? this.products : this.products.filter(p => p.category === cat);
     this.renderCatalog(filtered);
 
@@ -613,14 +612,14 @@
                     this.cart.push({...product, qty: 1});
                 }
 
-                // Update UI without full rerender
+                
                 const container = document.getElementById(`btn-container-${id}`);
                 const newItem = this.cart.find(c => c.id === id);
                if (container) {
     container.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
 }
                 
-                // Update badge
+               
                 const totalQty = this.cart.reduce((sum, item) => sum + item.qty, 0);
                 document.getElementById('badge').innerText = totalQty;
             },
@@ -720,15 +719,15 @@ function closeContactPopup() {
 </div>
 
 <style>
-    /* Mobile par show karne ke liye media query */
+  
     @media (max-width: 768px) {
         .mobile-nav { display: flex !important; }
-        .nav-links { display: none; } /* Upar waale links chhup jayenge */
-        body { padding-bottom: 70px; } /* Niche jagah chhodne ke liye */
+        .nav-links { display: none; } 
+        body { padding-bottom: 70px; } 
     }
 </style>
-<!-- Firebase -->
-<!-- Firebase CDN -->
+
+
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
@@ -775,7 +774,6 @@ function closeContactPopup() {
 </script>
 </body>
 </html>
-
 
 
 
