@@ -436,14 +436,18 @@
     <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
         <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
 
-        <input type="email" id="email" placeholder="Enter Email" style="width:100%; padding:12px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;">
-        
-        <input type="password" id="password" placeholder="Enter Password" style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd;">
+        <!-- Google Login Button -->
+        <button onclick="googleLogin()" class="btn-buy">
+            🔵 Login with Google
+        </button>
 
-        <button onclick="register()" class="btn-buy">Register</button>
-        <button onclick="login()" class="btn-buy" style="margin-top:10px;">Login</button>
-        <button onclick="logout()" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">Logout</button>
+        <!-- Logout Button -->
+        <button onclick="logout()" 
+            style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">
+            Logout
+        </button>
 
+        <!-- User Info -->
         <p id="userInfo" style="margin-top:15px;"></p>
     </div>
 </section>
@@ -722,22 +726,52 @@ function closeContactPopup() {
     }
 </style>
 <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+<!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 <script>
   const firebaseConfig = {
-     apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
-  authDomain: "stars-traders.firebaseapp.com",
-  projectId: "stars-traders",
-  storageBucket: "stars-traders.firebasestorage.app",
-  messagingSenderId: "772811314274",
-  appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
-  measurementId: "G-XZ7Z2TH6H3"
+    apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
+    authDomain: "stars-traders.firebaseapp.com",
+    projectId: "stars-traders",
+    storageBucket: "stars-traders.firebasestorage.app",
+    messagingSenderId: "772811314274",
+    appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
+    measurementId: "G-XZ7Z2TH6H3"
   };
 
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  function googleLogin() {
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        document.getElementById("userInfo").innerHTML =
+          "✅ Welcome " + result.user.displayName;
+      })
+      .catch((error) => {
+        document.getElementById("userInfo").innerHTML =
+          "❌ " + error.message;
+      });
+  }
+
+  function logout() {
+    auth.signOut().then(() => {
+      document.getElementById("userInfo").innerHTML = "👋 Logged Out";
+    });
+  }
+
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      document.getElementById("userInfo").innerHTML =
+        "✅ Logged in as: " + user.displayName;
+    } else {
+      document.getElementById("userInfo").innerHTML =
+        "";
+    }
+  });
 </script>
 </body>
 </html>
