@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,16 +197,36 @@
     gap: 40px; 
 }
 
-/* Mobile ke liye settings */
-@media (max-width: 768px) {
-    .founder-container { text-align: center; }
-    .vertical-line { display: none; } /* Mobile pe kaali line hat jayegi */
-    .founder-text { text-align: center; }
-    .footer-grid { 
-        grid-template-columns: 1fr; 
-        text-align: center; 
+@media (max-width: 600px) {
+    /* Mobile par 1 ki jagah 2 columns */
+    .product-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Thoda gap kam kiya taaki fit aaye */
+        padding: 10px;
     }
-    .footer-grid div { text-align: center !important; }
+    
+    .product-card {
+        padding: 10px; /* Card ki padding thodi kam */
+    }
+
+    .product-card img {
+        height: 150px; /* Choti screen par image height set ki */
+    }
+
+    .product-card h3 {
+        font-size: 14px; /* Text thoda chota kiya taaki 2nd line mein na bhage */
+    }
+
+    .qty-controls {
+        gap: 10px; /* Buttons ke beech ka gap kam kiya */
+        padding: 5px;
+    }
+
+    .btn-qty {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
 }
     </style>
 </head>
