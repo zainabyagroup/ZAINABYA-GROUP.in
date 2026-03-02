@@ -424,11 +424,7 @@
                 <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
             </div>
         </section>
-   
-   
-    
-
-    </button>
+   </button>
 
 <button class="logout-btn" onclick="logout()"></button>
 
@@ -436,6 +432,22 @@
 <div id="userInfo" style="margin-top:15px; font-weight:600;"></div>
    </div>
 </section>
+<section id="page-account" class="page-view">
+    <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
+        <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
+
+        <input type="email" id="email" placeholder="Enter Email" style="width:100%; padding:12px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;">
+        
+        <input type="password" id="password" placeholder="Enter Password" style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd;">
+
+        <button onclick="register()" class="btn-buy">Register</button>
+        <button onclick="login()" class="btn-buy" style="margin-top:10px;">Login</button>
+        <button onclick="logout()" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">Logout</button>
+
+        <p id="userInfo" style="margin-top:15px;"></p>
+    </div>
+</section>
+
     </main>
 
     <div id="payModal" role="dialog" aria-labelledby="payTitle">
@@ -683,9 +695,9 @@
                 let itemsStr = this.cart.map(i => `${i.name} (Qty: ${i.qty})`).join(', ');
                 let msg = `*NEW ORDER FROM ZAINABYA*\n\n*Items:* ${itemsStr}\n*Customer:* ${document.getElementById('custName').value}\n*Total:* Rs. ${document.getElementById('cartTotal').innerText}`;
                 window.open(`https://wa.me/919837904369?text=${encodeURIComponent(msg)}`);
-            }
+          }
         };
-        app.init();
+     app.init();
 
 function openContactPopup() {
     document.getElementById('contactPopup').style.display = 'flex';
@@ -695,11 +707,10 @@ function closeContactPopup() {
     document.getElementById('contactPopup').style.display = 'none';
 }
 </script>
-    </script>
     <div class="mobile-nav" style="position: fixed; bottom: 0; left: 0; width: 100%; background: var(--charcoal); display: none; justify-content: space-around; padding: 15px; border-top: 2px solid var(--gold); z-index: 9999;">
     <span onclick="app.nav('home')" style="font-size: 24px; cursor: pointer;">🏠</span>
     <span onclick="app.nav('catalog')" style="font-size: 24px; cursor: pointer;">🛍️</span>
-  <a onclick="app.nav('account')">👤 Account</a>
+    <span onclick="app.nav('cart')" style="font-size: 24px; cursor: pointer;">🛒</span>
 </div>
 
 <style>
@@ -710,52 +721,24 @@ function closeContactPopup() {
         body { padding-bottom: 70px; } /* Niche jagah chhodne ke liye */
     }
 </style>
-<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
 <script>
   const firebaseConfig = {
-    apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
-    authDomain: "stars-traders.firebaseapp.com",
-    projectId: "stars-traders",
-    storageBucket: "stars-traders.firebasestorage.app",
-    messagingSenderId: "772811314274",
-    appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
-    measurementId: "G-XZ7Z2TH6H3"
+     apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
+  authDomain: "stars-traders.firebaseapp.com",
+  projectId: "stars-traders",
+  storageBucket: "stars-traders.firebasestorage.app",
+  messagingSenderId: "772811314274",
+  appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
+  measurementId: "G-XZ7Z2TH6H3"
   };
 
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  function googleLogin() {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        document.getElementById("userInfo").innerHTML =
-          "✅ Welcome " + result.user.displayName;
-      })
-      .catch((error) => {
-        document.getElementById("userInfo").innerHTML =
-          "❌ " + error.message;
-      });
-  }
-
-  function logout() {
-    auth.signOut().then(() => {
-      document.getElementById("userInfo").innerHTML = "👋 Logged Out";
-    });
-  }
-
-  auth.onAuthStateChanged(function(user) {
-    if (user) {
-      document.getElementById("userInfo").innerHTML =
-        "✅ Logged in as: " + user.displayName;
-    } else {
-      document.getElementById("userInfo").innerHTML =
-        "Please login";
-    }
-  });
 </script>
-
 </body>
 </html>
 
@@ -771,6 +754,4 @@ function closeContactPopup() {
 
 
 
-
-s
 
