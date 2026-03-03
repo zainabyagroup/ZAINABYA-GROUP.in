@@ -493,7 +493,7 @@ async function biometricLogin() {
         console.log("Credential created:", credential);
 
         alert("✅ Biometric login successful!");
-        document.getElementById("userInfo").innerHTML = "✅ Logged in via Biometric";
+        document.getElementById("accountUserInfo").innerHTML = "✅ Logged in via Biometric";
 
     } catch (err) {
         console.error(err);
@@ -502,7 +502,7 @@ async function biometricLogin() {
 }
 </script>
 
-        <p id="userInfo" style="margin-top:15px;"></p>
+        <p id="accountUserInfo" style="margin-top:15px;"></p>
     </div>
 </section>
 
@@ -802,22 +802,20 @@ function closeContactPopup() {
   function googleLogin() {
     auth.signInWithPopup(provider)
       .then((result) => {
-        document.getElementById("userInfo").innerHTML =
-          "✅ Welcome " + result.user.displayName;
+        document.getElementById("accountUserInfo").innerHTML = "✅ Welcome " + result.user.displayName;
       })
       
   }
 
   function logout() {
     auth.signOut().then(() => {
-      document.getElementById("userInfo").innerHTML = "👋 Logged Out";
+     document.getElementById("accountUserInfo").innerHTML = "👋 Logged Out";
     });
   }
 
   auth.onAuthStateChanged(function(user) {
     if (user) {
-      document.getElementById("userInfo").innerHTML =
-        "✅ Logged in as: " + user.displayName;
+      document.getElementById("accountUserInfo").innerHTML = "✅ Logged in as: " + user.displayName;
     } else {
       document.getElementById("userInfo").innerHTML =
       "";
