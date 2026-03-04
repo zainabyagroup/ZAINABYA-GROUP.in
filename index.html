@@ -349,9 +349,9 @@
     <img src="CATALOG.webp" alt="Catalog" width="35" height="35">
 </a>
 
-<a href="#" onclick="app.nav('cart'); return false;">
+<a href="#" onclick="app.nav('cart'); return false;" class="cart-icon">
     <img src="CART.webp" alt="Cart" width="35" height="35">
-    <span id="badge" class="badge" style="position:absolute; top:-5px; right:-5px;">0</span>
+    <span id="badge" class="badge">0</span>
 </a>
 
 <a href="#" onclick="app.nav('account'); return false;">
@@ -453,8 +453,7 @@ Experience Spiritual Excellence
 
 
 <div id="userInfo" style="margin-top:15px; font-weight:600;"></div>
-   </div>
-</section>
+   
 <section id="page-account" class="page-view">
     <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
         <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
@@ -832,18 +831,15 @@ function closeContactPopup() {
     <span onclick="app.nav('cart')" style="font-size: 24px; cursor: pointer;">🛒</span>
 </div>
 
-<style>
+
   
-    @media (max-width: 768px) {
-        .mobile-nav { display: flex !important; }
-        .nav-links { display: none; } 
-        body { padding-bottom: 70px; } 
-    }
+ 
+
 </style>
-
-
 <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
 
 <script>
   const firebaseConfig = {
@@ -860,13 +856,17 @@ function closeContactPopup() {
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
 
-  function googleLogin() {
+ function googleLogin() {
     auth.signInWithPopup(provider)
-      .then((result) => {
-        document.getElementById("accountUserInfo").innerHTML = "✅ Welcome " + result.user.displayName;
-      })
-      
-  }
+        .then((result) => {
+            document.getElementById("accountUserInfo").innerHTML =
+                "✅ Welcome " + result.user.displayName;
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("❌ Google Login Failed: " + error.message);
+        });
+}
 
   function logout() {
     auth.signOut().then(() => {
@@ -884,11 +884,10 @@ function closeContactPopup() {
     }
   });
 </script>
-<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
 </body>
 </html>
-
 
 
 
