@@ -660,28 +660,34 @@ async function biometricLogin() {
                     </div>
                 `;
             },
-            updateQty(id, delta) {
-                const product = this.products.find(p => p.id === id);
-                const index = this.cart.findIndex(c => c.id === id);
+           updateQty(id, delta) {
+    const product = this.products.find(p => p.id === id);
+    const index = this.cart.findIndex(c => c.id === id);
 
-                if (index > -1) {
-                    this.cart[index].qty += delta;
-                    if (this.cart[index].qty <= 0) this.cart.splice(index, 1);
-                } else if (delta > 0) {
-                    this.cart.push({...product, qty: 1});
-                }
+    if (index > -1) {
+        this.cart[index].qty += delta;
+        if (this.cart[index].qty <= 0) this.cart.splice(index, 1);
+    } else if (delta > 0) {
+        this.cart.push({...product, qty: 1});
+    }
 
-                
-                const container = document.getElementById(`btn-container-${id}`);
-                const newItem = this.cart.find(c => c.id === id);
-               if (container) {
-    container.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
-}
-                
-               
-                const totalQty = this.cart.reduce((sum, item) => sum + item.qty, 0);
-                document.getElementById('badge').innerText = totalQty;
-            },
+    
+    const container = document.getElementById(`btn-container-${id}`);
+    const newItem = this.cart.find(c => c.id === id);
+    if (container) {
+        container.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
+    }
+
+    const specBtn = document.getElementById('spec-btn-container');
+    if (specBtn && document.getElementById('page-spec').classList.contains('active')) {
+        specBtn.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
+    }
+
+ 
+    const totalQty = this.cart.reduce((sum, item) => sum + item.qty, 0);
+    const badge = document.getElementById('badge');
+    if(badge) badge.innerText = totalQty;
+},
            showSpec(id) {
     const p = this.products.find(x => x.id === id);
     const cartItem = this.cart.find(c => c.id === id);
@@ -863,7 +869,6 @@ function closeContactPopup() {
 </script>
 </body>
 </html>
-
 
 
 
