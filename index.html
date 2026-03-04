@@ -14,8 +14,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'">
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet">
+</noscript>
     <style>
 
         :root {
@@ -352,7 +359,12 @@
 
     <main>
         <section class="top-hero-banner" id="mainHero">
-         <img src="BANNER.webp" alt="Zainabya Premium Islamic Banner" width="1920" height="600" loading="lazy" decoding="async" fetchpriority="high">
+        <img src="BANNER.webp"
+     alt="Zainabya Premium Islamic Banner"
+     width="1920"
+     height="600"
+     decoding="async"
+     fetchpriority="high">
             <div class="banner-text">
            
                 <p></p>
@@ -453,12 +465,10 @@
             style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">
             Logout
         </button>
-        <!-- Existing Firebase / Auth script ke baad -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+   
 
 <script>
-  // Aapka existing firebase auth code yaha hai
+  
 </script>
 
 <!-- Add this Biometric Login script just after your Firebase scripts -->
@@ -588,7 +598,7 @@ async function biometricLogin() {
 
     </div>
 </div>
-    <script>
+    <script defer>
         
         window.addEventListener('load', () => {
             setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
@@ -867,9 +877,10 @@ function closeContactPopup() {
     }
   });
 </script>
+<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </body>
 </html>
-
 
 
 
