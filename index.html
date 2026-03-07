@@ -1,944 +1,309 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#004d40">
-<link rel="preload" as="image" href="BANNER.webp">
-   <title>Zainabya Group Islamic | Premium Tasbeeh & Islamic Essentials</title>
-   <meta name="description" content="Zainabya Group Islamic - Buy premium Tasbeeh, Karbala Sajdagah, Quran, Islamic decor and authentic Shia Islamic essentials online in India. Quality and purity guaranteed.">
-    <link rel="canonical" href="https://14starstraders.github.io/ZAINABYA-GROUP/">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'">
-<noscript>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet">
-</noscript>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        :root {
-            --islamic-green: #004d40;
-            --gold: #d4af37;
-            --cream: #f9f7f2;
-            --offer-red: #d32f2f;
-            --white: #ffffff;
-            --charcoal: #36454F; 
-        }
+<title>ZGI Luxury Store</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--cream); color: #333; line-height: 1.6; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-        
-        #loader {
-            position: fixed; inset: 0; background: var(--cream); z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-        }
-        .spinner {
-            width: 50px; height: 50px;
-            border: 5px solid #eee; border-top: 5px solid var(--islamic-green);
-            border-radius: 50%; animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+<style>
 
-        /* TOP BAR */
-        .bogo-banner { 
-            background: linear-gradient(90deg, var(--offer-red), #ff5252); 
-            color: white; 
-            text-align: center; 
-            padding: 8px; 
-            font-weight: 700; 
-            font-size: 13px; 
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        header { 
-            background: var(--charcoal); 
-            backdrop-filter: blur(10px);
-            color: white; 
-            padding: 10px 0; 
-            border-bottom: 3px solid var(--gold); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1001; 
-        }
-
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        
-        .logo img { 
-            height: 75px; 
-            width: auto;
-            cursor: pointer; 
-            display: block; 
-            transition: 0.3s;
-        }
-        
-        .nav-links a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; margin-left: 20px; cursor: pointer; transition: 0.3s; }
-        .badge { background: var(--gold); color: black; padding: 2px 8px; border-radius: 50px; font-size: 12px; font-weight: 700; }
-
-      .top-hero-banner { 
-    width: 100%; 
-    height: auto; 
-    background: var(--charcoal); 
+body{
+margin:0;
+font-family:'Playfair Display', serif;
+background:#fafafa;
 }
 
-.top-hero-banner img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
-        
-        .banner-text { position: relative; z-index: 10; text-align: center; color: var(--gold); padding: 0 20px; background: rgba(0,0,0,0.3); border-radius: 20px; padding: 20px;}
-        .banner-text h1 { font-family: 'Amiri', serif; font-size: clamp(30px, 8vw, 60px); line-height: 1.1; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .banner-text p { color: white; font-size: 18px; letter-spacing: 1px; margin-bottom: 30px; font-weight: 300; }
-        
+/* NAVBAR */
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; margin-top: 10px; }
-        .card { background: var(--white); border-radius: 20px; overflow: hidden; position: relative; border: 1px solid rgba(0,0,0,0.05); text-align: center; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .card:hover { transform: translateY(-10px); }
-        .card-img-container { background: #fdfdfd; padding: 20px; height: 250px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .card img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .price { color: var(--islamic-green); font-weight: 800; font-size: 22px; margin-bottom: 15px; display: block; }
-        .card-tag { background: var(--offer-red); color: white; font-size: 11px; padding: 6px 15px; border-radius: 0 0 0 15px; position: absolute; top: 0; right: 0; z-index: 5; font-weight: 700; }
-        
-        .qty-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f5f5f5; 
-    border-radius: 12px;
-    padding: 5px;
-    width: 90%;
-    margin: 10px auto;
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
 }
 
-.qty-btn {
-    background: none !important;
-    color: #333 !important;
-    border: none;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-    cursor: pointer;
+.logo{
+font-size:24px;
+font-weight:700;
 }
 
-.qty-val {
-    font-weight: bold;
-    font-size: 18px;
-    color: #000;
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
-        .btn-buy { background: var(--islamic-green); color: white; padding: 15px 30px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; width: 90%; margin-bottom: 20px; transition: 0.3s; }
-
-        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin: 30px 0; flex-wrap: wrap; }
-        .tab-btn { padding: 10px 20px; border: 1px solid var(--islamic-green); background: white; border-radius: 30px; cursor: pointer; font-weight: 600; color: var(--islamic-green); }
-        .tab-btn.active { background: var(--islamic-green); color: white; }
-
-        .page-view { display: none; animation: fadeIn 0.4s ease-in; }
-        .active { display: block; }
-        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-
-        footer { background: #002e26; color: white; padding: 60px 20px; text-align: center; margin-top: 50px; }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 1000; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        
-        #payModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; }
-        .pay-card { background: white; padding:30px; border-radius:25px; text-align:center; max-width:400px; width:90%; border-top: 10px solid var(--gold); }
-        
-
-.founder-section { 
-    background: #fdfdfd; 
-    padding: 80px 20px; 
-    border-top: 1px solid #eee; 
-    border-bottom: 1px solid #eee; 
+.cart{
+position:relative;
+cursor:pointer;
 }
 
-.founder-container { 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    display: flex; 
-    align-items: center; 
-    gap: 50px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
+.cart span{
+position:absolute;
+top:-10px;
+right:-10px;
+background:black;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
 }
 
-.founder-img { 
-    width: 240px; 
-    height: 240px; 
-    border-radius: 50%; 
-    border: 15px solid #d4c82d; 
-    object-fit: cover; 
+/* HERO */
+
+.hero{
+height:80vh;
+background:url("https://images.unsplash.com/photo-1596462502278-27bfdc403348") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
 }
 
-.vertical-line { 
-    width: 2px; 
-    height: 140px; 
-    background: #000; 
+.hero h1{
+font-size:60px;
+margin:0;
 }
 
-.founder-text { 
-    flex: 1; 
-    min-width: 300px; 
-    text-align: left; 
+.hero p{
+font-size:20px;
 }
 
-.main-footer { 
-    background: #2a3038; 
-    color: white; 
-    padding: 60px 20px; 
+.hero button{
+padding:15px 35px;
+border:none;
+background:white;
+margin-top:20px;
+font-weight:bold;
+cursor:pointer;
 }
 
-.footer-grid { 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    display: grid; 
-    grid-template-columns: 1.5fr 1fr; 
-    gap: 40px; 
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:60px;
 }
 
-@media (max-width: 600px) {
-  
-    .product-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 10px; 
-        padding: 10px;
-    }
-    
-    .product-card {
-        padding: 10px; 
-    }
-
-    .product-card img {
-        height: 150px; 
-    }
-
-    .product-card h3 {
-        font-size: 14px; 
-    }
-
-    .qty-controls {
-        gap: 10px; 
-        padding: 5px;
-    }
-
-    .btn-qty {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-}
-    </style>
-  <style>
-.account-bg{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background: linear-gradient(135deg,#141e30,#243b55);
-    font-family: 'Poppins', sans-serif;
+.p-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+transition:0.4s;
 }
 
-
-.login-card{
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    padding:40px;
-    border-radius:20px;
-    width:320px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    color:white;
+.p-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
 }
 
-
-.login-card h2{
-    margin-bottom:20px;
-    font-size:24px;
-    font-weight:600;
+.p-card img{
+width:100%;
+height:300px;
+object-fit:cover;
 }
 
-
-.login-card button{
-    width:100%;
-    padding:12px;
-    margin-top:15px;
-    border:none;
-    border-radius:30px;
-    font-size:14px;
-    cursor:pointer;
-    transition:0.3s;
+.p-info{
+padding:15px;
 }
 
-
-.google-btn{
-    background:white;
-    color:#333;
-    font-weight:500;
+.p-info h3{
+margin:0;
+font-size:18px;
 }
 
-.google-btn:hover{
-    transform:scale(1.05);
+.price{
+color:#a07d52;
+margin:10px 0;
 }
 
-
-.logout-btn{
-    background:#ff4b2b;
-    color:white;
+.p-info button{
+width:100%;
+padding:10px;
+border:none;
+background:black;
+color:white;
+cursor:pointer;
+}
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 60px;
+background:#f5f5f5;
+position:sticky;
+top:0;
+z-index:100;
 }
 
-.logout-btn:hover{
-    background:#ff1e00;
-    transform:scale(1.05);
-}
-.cart-icon{
-    position: relative;
-    display: inline-block;
+.nav-left h2{
+margin:0;
+font-size:26px;
+font-weight:700;
 }
 
-.cart-icon .badge{
-    position: absolute;
-    top: -6px;
-    right: -12px;
+.nav-center{
+display:flex;
+gap:40px;
 }
+
+.nav-center a{
+text-decoration:none;
+color:#333;
+font-size:16px;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-right input{
+padding:6px 10px;
+border:1px solid #ddd;
+border-radius:4px;
+}
+
+.cart{
+position:relative;
+cursor:pointer;
+font-size:20px;
+}
+
+.cart span{
+position:absolute;
+top:-8px;
+right:-10px;
+background:black;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+}
+
 </style>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Store",
- "name": "Zainabya Group Islamic",
- "image": "https://14starstraders.github.io/ZAINABYA-GROUP/LOGO.png",
- "address": {
-   "@type": "PostalAddress",
-   "streetAddress": "Shop No 1 and 2 Zainabya Masjid, South Krishnapuri",
-   "addressLocality": "Muzaffarnagar",
-   "addressRegion": "Uttar Pradesh",
-   "postalCode": "251002",
-   "addressCountry": "IN"
- },
- "telephone": "+919897206923",
- "url": "https://14starstraders.github.io/ZAINABYA-GROUP/"
-}
-</script>
 </head>
+
 <body>
-    <div style="background: #d4af37; color: black; text-align: center; padding: 15px; font-weight: 700; border-bottom: 2px solid #000; position: relative; z-index: 10001;">
- 
-    <a href="https://14starstraders.github.io/14-STARS-TRADERS.IN/" style="background: black; color: #d4af37; padding: 5px 15px; text-decoration: none; border-radius: 5px; margin-left: 10px; font-size: 12px;">
-        CLICK HERE TO VISIT OUR COSMETIC WEBSITE
-    </a>
+
+<header class="navbar">
+
+<div class="nav-left">
+<h2>ZGI</h2>
 </div>
 
- 
-   <header>
-    <nav class="nav-container">
-        <div class="logo" onclick="app.nav('home')" style="display: flex; align-items: center; gap: 10px;">
-              <img src="LOGO.png" alt="Logo" style="height: 50px; width: auto;">
-            <span style="font-size: 18px; font-weight: 800; color: var(--gold); line-height: 1.2;">
-                ZAINABYA GROUP<br>ISLAMIC
-            </span>
-        </div>
-        <div class="nav-links">
+<div class="nav-center">
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
 
-<a href="#" onclick="app.nav('home'); return false;">
-    <img src="HOME.webp" alt="Home" width="35" height="35">
-</a>
+<div class="nav-right">
 
-<a href="#" onclick="app.nav('catalog'); return false;">
-    <img src="CATALOG.webp" alt="Catalog" width="35" height="35">
-</a>
+<input type="text" placeholder="Search">
 
-<a onclick="app.nav('cart')" class="cart-icon">
-    <img src="CART.webp" alt="Cart" width="35" height="35" loading="lazy" decoding="async">
-    <span id="badge" class="badge">0</span>
-</a>
-
-<a href="#" onclick="app.nav('account'); return false;">
-    <img src="ACCOUNT.webp" alt="Account" width="35" height="35">
-</a>
+<div class="cart">
+🛒
+<span id="cartCount">0</span>
+</div>
 
 </div>
-    </nav>
+
 </header>
 
-    <main>
-        <section class="top-hero-banner" id="mainHero">
-        <img src="BANNER.webp"
-     alt="Zainabya Premium Islamic Banner"
-     width="1920"
-     height="600"
-     decoding="async"
-     fetchpriority="high">
-            <div class="banner-text">
-           
-                <p></p>
-            </div>
-        </section>
+<section class="hero">
 
-       <section id="page-home" class="page-view active">
-    
-    <div class="container" style="text-align:center; padding: 60px 20px;">
-       <h1 style="font-family:'Amiri'; color:var(--islamic-green); font-size:40px;">
-Experience Spiritual Excellence
-</h1>
-        <p style="max-width:700px; margin: 0 auto 40px; color:#666; font-size:18px;">Quality and Purity guaranteed for your daily spiritual essentials.</p>
-        <button class="btn-buy" onclick="app.nav('catalog')" style="width:auto; padding:18px 50px; border-radius:50px; font-size:18px; background:var(--gold); color:black; cursor:pointer;" aria-label="Shop our collection">
-            CLICK HERE FOR SHOPPING
-        </button>
-    </div>
+<div>
+<h1>ZGI Luxury Collection</h1>
+<p>Pure Wellness & Natural Beauty</p>
+<button>SHOP NOW</button>
+</div>
 
-    <div style="background: #fdfdfd; padding: 60px 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
-        <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center;">
-            
-            <div style="position: relative;">
-              <img src="founder.webp"
-     alt="Arif Hussain"
-     style="width: 220px; height: 220px; border-radius: 50%; border: 12px solid #d4c82d; object-fit: cover; display: block;">
-    
-            </div>
-
-            <div class="desktop-line" style="width: 2px; height: 120px; background: #000;"></div>
-
-            <div style="flex: 1; min-width: 300px; text-align: left;">
-                <h2 style="font-size: 32px; font-weight: 800; color: #1a1a1a; margin-bottom: 5px; text-transform: uppercase;">ARIF HUSSAIN</h2>
-                <span style="color: #888; font-weight: 500; display: block; margin-bottom: 15px;">Founder</span>
-                <p style="font-size: 16px; line-height: 1.7; color: #333; font-style: italic;">
-                    "Muzzafarnagar se ek silsila shuru hua hai aapki ibadat ko aur pur-asarr banane ka. Hamara maqsad sirf tijarat nahi, balki har ghar tak asli aur mayari Islamic essentials pahunchana hai—<b>Zainabya Group</b>."
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-            </div>
-        </section>
-
-        <section id="page-catalog" class="page-view">
-            <div class="container">
-                <h2 style="text-align:center; font-family:'Amiri'; font-size:35px; margin-bottom:10px;">Our Premium Collection</h2>
-                <div class="filter-tabs">
-                 <button class="tab-btn active" onclick="app.filter('All', event)">All Items</button>
-<button class="tab-btn" onclick="app.filter('Essentials', event)">Essentials</button>
-<button class="tab-btn" onclick="app.filter('Tasbeeh', event)">Tasbeeh</button>
-<button class="tab-btn" onclick="app.filter('BOOKS', event)">Books</button>
-<button class="tab-btn" onclick="app.filter('DECOR', event)">Decor</button>
-                </div>
-                <div id="productGrid" class="product-grid"></div>
-            </div>
-        </section>
-
-        <section id="page-spec" class="page-view"><div class="container"><div id="specContent"></div></div></section>
-        
-        <section id="page-cart" class="page-view">
-            <div class="container" style="max-width:600px; background:white; padding:30px; border-radius:20px;">
-                <h2 style="font-family:'Amiri'; border-bottom:2px solid var(--gold); padding-bottom:10px;">Your Shopping CART</h2>
-                <div id="cartList" style="margin-top:20px;"></div>
-                <h3 style="margin-top:20px; text-align:right;">Subtotal: Rs. <span id="cartTotal">0</span></h3>
-                <button onclick="app.nav('checkout')" class="btn-buy" style="margin-top:20px; border-radius:50px;">PROCEED TO CHECKOUT</button>
-            </div>
-        </section>
-
-        <section id="page-checkout" class="page-view">
-            <div class="container" style="max-width:500px; background:white; padding:30px; border-radius:20px;">
-                <h3 style="margin-bottom:20px; color:var(--islamic-green);">Shipping Details</h3>
-                <input type="text" id="custName" aria-label="Full Name" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="Full Name">
-                <input type="tel" id="custPhone" aria-label="WhatsApp Number" style="width:100%; padding:15px; margin-bottom:10px; border-radius:10px; border:1px solid #ddd;" placeholder="WhatsApp Number">
-                <textarea id="custAddr" aria-label="Address" style="width:100%; padding:15px; margin-bottom:20px; border-radius:10px; border:1px solid #ddd; height:100px;" placeholder="Full Address with Pincode"></textarea>
-                <button onclick="app.openPay()" class="btn-buy" style="border-radius:50px;">CONFIRM & PAY</button>
-            </div>
-        </section>
-   
-
-
-
-
-<div id="userInfo" style="margin-top:15px; font-weight:600;"></div>
-   
-<section id="page-account" class="page-view">
-    <div class="container" style="max-width:400px; background:white; padding:30px; border-radius:20px;">
-        <h3 style="margin-bottom:20px; color:var(--islamic-green);">My Account</h3>
-
-       
-        <button onclick="googleLogin()" class="btn-buy">
-            🔵 Login with Google
-        </button>
-        <button onclick="biometricLogin()" class="btn-buy" style="margin-top:15px; background:#004d40; color:white;">
-    🔒 Login with Passkey / Biometric
-</button>
-
-       
-        <button onclick="logout()" 
-            style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">
-            Logout
-        </button>
-   
-
-<script>
-  
-</script>
-
-<!-- Add this Biometric Login script just after your Firebase scripts -->
-<script>
-async function biometricLogin() {
-    if (!window.PublicKeyCredential) {
-        alert("Sorry, your browser does not support WebAuthn.");
-        return;
-    }
-
-    try {
-        const challenge = new Uint8Array(32);
-        window.crypto.getRandomValues(challenge);
-
-        const publicKey = {
-            challenge: challenge,
-            rp: { name: "Zainabya Group Islamic" },
-            user: {
-                id: Uint8Array.from(String("user-id-123"), c => c.charCodeAt(0)),
-                name: "user@example.com",
-                displayName: "User Demo"
-            },
-            pubKeyCredParams: [{ type: "public-key", alg: -7 }],
-            authenticatorSelection: {
-                authenticatorAttachment: "platform",
-                userVerification: "required"
-            },
-            timeout: 60000,
-            attestation: "direct"
-        };
-
-        const credential = await navigator.credentials.create({ publicKey });
-        console.log("Credential created:", credential);
-
-        alert("✅ Biometric login successful!");
-        document.getElementById("accountUserInfo").innerHTML = "✅ Logged in via Biometric";
-
-    } catch (err) {
-        console.error(err);
-        alert("❌ Biometric login failed: " + err.message);
-    }
-}
-</script>
-
-        <p id="accountUserInfo" style="margin-top:15px;"></p>
-    </div>
 </section>
 
-    </main>
+<section class="products">
 
-<div id="payModal" role="dialog" aria-labelledby="payTitle">
-        <div class="pay-card">
-            <h2 id="payTitle" style="font-family:'Amiri';">Secure Payment</h2>
-            <p>Total Amount: <b style="font-size:24px; color:var(--gold)">Rs. <span id="payAmt">0</span></b></p>
-            <img id="qrImg" src="" alt="Payment QR Code" width="220" height="220" style="margin:20px 0; border: 1px solid #eee;">
-            <button onclick="app.confirmOrder()" style="background:#25d366; color:white; width:100%; padding:15px; border:none; border-radius:50px; font-weight:700; cursor:pointer;">I HAVE PAID (Confirm on WA)</button>
-            <button onclick="document.getElementById('payModal').style.display='none'" style="margin-top:15px; background:none; border:none; color:#999; cursor:pointer;">Cancel</button>
-        </div>
-    </div>
-   <a class="wa-float" onclick="openContactPopup()" aria-label="Contact us">📲</a>
-
-  <footer style="background: #2a3038; color: white; padding: 60px 20px; margin-top: 50px;">
-    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-        
-        <div style="text-align: left;">
-            <div style="font-size: 22px; font-weight: 800; color: #d4af37; margin-bottom: 20px; text-transform: uppercase;">
-                ZAINABYA GROUP ISLAMIC
-            </div>
-            <p style="margin-bottom: 10px; font-size: 15px; line-height: 1.6;">
-                <strong>Address:</strong><br>
-                SHOP NO 1 AND 2 ZAINABYA MASJID, South Krishnapuri,<br>
-                Muzaffarnagar, Uttar Pradesh - 251002
-            </p>
-            <p style="font-size: 15px; margin-top: 15px;">
-                <i class="fa fa-phone"></i> <b>Phone:</b> +91 9897206923
-            </p>
-            <p style="font-size: 15px;">
-                <i class="fa fa-envelope"></i> <b>Email:</b> Zainabyagroup112@gmail.com
-            </p>
-        </div>
-
-        <div style="text-align: right;">
-           <h3 style="font-size: 18px; margin-bottom: 15px; color: #d4af37;">CONNECT WITH US</h3>
-            <div class="social-links">
-    
-    
-    <a href=" https://www.facebook.com/ChannelZinGroup" style="display: block; color: #bbb; text-decoration: none; margin-bottom: 10px;">
-        <i class="fab fa-whatsapp"></i> FACEBOOK
-    </a>
-
-    <a href=" https://www.instagram.com/zainabyagroupislamic" target="_blank" style="display: block; color: #bbb; text-decoration: none; margin-bottom: 10px;">
-        <i class="fab fa-instagram"></i> INSTAGRAM
-    </a>
-
-    <a href="https://www.youtube.com/@zainabyagroupislamic" target="_blank" style="display: block; color: #bbb; text-decoration: none; margin-bottom: 10px;">
-        <i class="fab fa-facebook"></i> YOUTUBE
-    </a>
+<div class="p-card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
+<div class="p-info">
+<h3>Rose Water</h3>
+<div class="price">₹149</div>
+<button onclick="addCart()">Add to Cart</button>
 </div>
-        </div>
-    </div>
+</div>
 
-    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #444; font-size: 12px; opacity: 0.6;">
-        © 2026 Zainabya Group Islamic | Purely Sacred. Purely Yours.
-    </div>
+<div class="p-card">
+<img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd">
+<div class="p-info">
+<h3>Natural Face Oil</h3>
+<div class="price">₹399</div>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+</div>
+
+<div class="p-card">
+<img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108">
+<div class="p-info">
+<h3>Herbal Cream</h3>
+<div class="price">₹299</div>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+</div>
+
+<div class="p-card">
+<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c">
+<div class="p-info">
+<h3>Hair Serum</h3>
+<div class="price">₹349</div>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2025 ZGI Wellness Store</p>
+
 </footer>
 
-<div id="contactPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center;">
-    
-    <div style="background:white; width:90%; max-width:500px; padding:25px; border-radius:15px; position:relative;">
-        
-        <span onclick="closeContactPopup()" style="position:absolute; right:15px; top:10px; font-size:22px; cursor:pointer;">✖</span>
-
-        <h3 style="margin-bottom:15px; color:var(--islamic-green);">Get in Touch</h3>
-
-        <input type="text" placeholder="Name" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
-        
-        <input type="email" placeholder="Email *" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
-        
-        <input type="text" placeholder="Phone number" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px; border:1px solid #ddd;">
-        
-        <textarea placeholder="Comment" style="width:100%; padding:12px; height:100px; margin-bottom:15px; border-radius:8px; border:1px solid #ddd;"></textarea>
-
-        <button style="width:100%; padding:12px; background:var(--gold); border:none; border-radius:8px; font-weight:700; cursor:pointer;">
-            Send
-        </button>
-
-    </div>
-</div>
-    <script defer>
-       
-        
-        window.addEventListener('load', () => {
-            setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
-        });
-
-        const app = {
-            products: [
-                { id: 1, name: "SAJDAGAH (KHAQ-E-SHIFA)", price: 20, img: "SAJDAGAH.webp", category: "Essentials", desc: "This sacred prayer tablet, known as  Sajdagah, is crafted from the holy earth of Karbala, traditionally referred to as Khak-e-Shifa. It is a vital spiritual accessory for your daily prayers, symbolizing humility and deep devotion.." },
-                { id: 2, name: "TASBEEH", price: 30, img: "TAZBEEH.jpg", category: "Tasbeeh", desc: "100 high-quality crystal beads for comfortable daily dhikr." },
-                { id: 3, name: "ISLAMIC CLOCK", price: 350, img: "CLOCK.webp", category: "DECOR", desc: "Elevate your living space with this beautifully crafted Islamic clock, designed to serve as both a functional timepiece and a spiritual reminder. This clock combines traditional religious elements with a modern, clean aesthetic, making it an ideal centerpiece for any Muslim household.." },
-                { id: 4, name: "FLAG", price: 25, img: "FLAG.webp", category: "DECOR", desc: "Enhance the spiritual ambiance of your home or office with this exquisitely designed Islamic decorative set. This combo features a customized devotional clock paired with a high-quality religious flag, perfect for daily inspiration or special religious occasions. ." },
-                { id: 5, name: "GEMS ( NAG )", price: 150, img: "NAGS.jpg", category: "Essentials", desc: "Pure silver ring with authentic Yemeni Aqeeq stone." },
-                { id: 6, name: "QURAN", price: 499, img: "QURAN.jpg", category: "BOOKS", desc: "Compact size Holy Quran for reading." }
-            ],
-           
-             cart: [],
-            init() { this.renderCatalog(this.products); },
-           nav(id) {
-    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-    const hero = document.getElementById('mainHero');
-    hero.style.display = (id === 'home') ? 'flex' : 'none';
-    document.getElementById('page-' + id).classList.add('active');
-  
-    
- 
-    if(id === 'home') document.body.classList.add('home');
-    else document.body.classList.remove('home');
-
-    if(id === 'cart') this.renderCart();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-},
-         filter(cat, event) {
-    // Sabhi buttons se active class hatana
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    
-    // Clicked button par active class lagana
-    if(event) event.currentTarget.classList.add('active'); 
-
-    // Filter logic (Case sensitive issue solve karne ke liye toUpperCase ka use)
-    const filtered = cat === 'All' ? this.products : this.products.filter(p => p.category.toUpperCase() === cat.toUpperCase());
-    
-    this.renderCatalog(filtered);
-},
-            renderCatalog(productList) {
-                document.getElementById('productGrid').innerHTML = productList.map(p => {
-                    const cartItem = this.cart.find(c => c.id === p.id);
-                    const qty = cartItem ? cartItem.qty : 0;
-                    
-                    return `
-                    <article class="card">
-                        <div class="card-tag"> OFFER</div>
-                        <div class="card-img-container" onclick="app.showSpec(${p.id})">
-                            <img src="${p.img}" alt="${p.name}" width="250" height="250" loading="lazy" decoding="async">
-                        </div>
-                        <div style="padding:10px 20px;">
-                            <h3 style="font-size:17px; height:45px; overflow:hidden;">${p.name}</h3>
-                            <span class="price">Rs. ${p.price}</span>
-                            <div id="btn-container-${p.id}">
-    ${this.qtyHtml(p.id, qty)} 
-</div>
-                        </div>
-                    </article>
-                `}).join('');
-            },
-            qtyHtml(id, qty) {
-                return `
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="app.updateQty(${id}, -1)">-</button>
-                        <span class="qty-val">${qty}</span>
-                        <button class="qty-btn" onclick="app.updateQty(${id}, 1)">+</button>
-                    </div>
-                `;
-            },
-           updateQty(id, delta) {
-    const product = this.products.find(p => p.id === id);
-    const index = this.cart.findIndex(c => c.id === id);
-
-    if (index > -1) {
-        this.cart[index].qty += delta;
-        if (this.cart[index].qty <= 0) this.cart.splice(index, 1);
-    } else if (delta > 0) {
-       this.cart.push({...product, qty: 1});
-       saveCart();
-document.getElementById("badge").innerText = cart.length;
-
-    }
-
-    
-    const container = document.getElementById(`btn-container-${id}`);
-    const newItem = this.cart.find(c => c.id === id);
-    if (container) {
-        container.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
-    }
-
-    const specBtn = document.getElementById('spec-btn-container');
-    if (specBtn && document.getElementById('page-spec').classList.contains('active')) {
-        specBtn.innerHTML = this.qtyHtml(id, newItem ? newItem.qty : 0);
-    }
-
- 
-    const totalQty = this.cart.reduce((sum, item) => sum + item.qty, 0);
-    const badge = document.getElementById('badge');
-    if(badge) badge.innerText = totalQty;
-},
-           showSpec(id) {
-    const p = this.products.find(x => x.id === id);
-    const cartItem = this.cart.find(c => c.id === id);
-    const qty = cartItem ? cartItem.qty : 0;
-
-    document.getElementById('specContent').innerHTML = `
-    <div style="
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 30px; 
-        background: #fff; 
-        padding: 30px; 
-        border-radius: 20px; 
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        align-items: flex-start;
-        max-width: 1000px;
-        margin: 0 auto;
-    ">
-        <!-- Product Image -->
-        <div style="flex:1; min-width:300px;">
-            <img src="${p.img}" alt="${p.name}" style="
-                width:100%; 
-                border-radius:20px; 
-                object-fit: cover;
-            ">
-        </div>
-
-        <!-- Product Details -->
-        <div style="flex:1; min-width:300px;">
-            <span style="font-size:14px; color:#777; margin-bottom:10px; display:block;">Category: ${p.category}</span>
-            <h2 style="font-family:'Amiri', serif; font-size:32px; margin-bottom:10px;">${p.name}</h2>
-            <!-- Product Description -->
-            <p style="font-size:16px; color:#555; line-height:1.5; margin-bottom:20px;">
-                ${p.desc}
-            </p>
-
-            
-            <span class="price" style="font-size:28px; color: var(--islamic-green); font-weight:700;">Rs. ${p.price}</span>
-
-           
-                
-            
-
-            
-
-            <!-- Quantity Controls -->
-            <div id="spec-btn-container">
-                ${this.qtyHtml(p.id, qty)}
-            </div>
-
-            <!-- Back to Shop -->
-            <p style="text-align:left; color:#999; margin-top:20px; cursor:pointer;" onclick="app.nav('catalog')">← Back to Shop</p>
-        </div>
-    </div>
-    `;
-
-    this.nav('spec');
-},
-          
-            renderCart() {
-    let total = 0;
-    const list = document.getElementById('cartList');
-    
-    if(this.cart.length === 0) {
-        list.innerHTML = "<div style='text-align:center; padding:50px;'><p>Your cart is empty.</p></div>";
-        document.getElementById('cartTotal').innerText = "0";
-        return;
-    }
-
-   list.innerHTML = this.cart.map((i) => { 
-        total += (i.price * i.qty); 
-        return `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #eee;">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img src="${i.img}" width="50" height="50" style="object-fit:cover; border-radius:8px;">
-                <div>
-                    <b style="font-size:14px;">${i.name}</b><br>
-                    <small style="color:var(--islamic-green)">Rs. ${i.price} each</small>
-                </div>
-            </div>
-            
-            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:5px;">
-                <div style="display:flex; align-items:center; background:#f0f0f0; border-radius:8px; padding:2px 8px; gap:10px;">
-                    <button onclick="app.updateQty(${i.id}, -1); app.renderCart();" style="background:none; border:none; font-weight:bold; cursor:pointer; font-size:18px;">-</button>
-                    <span style="font-weight:700;">${i.qty}</span>
-                    <button onclick="app.updateQty(${i.id}, 1); app.renderCart();" style="background:none; border:none; font-weight:bold; cursor:pointer; font-size:18px;">+</button>
-                </div>
-                <b style="font-size:14px;">Rs. ${i.price * i.qty}</b>
-            </div>
-        </div>`; 
-    }).join('');
-    
-    document.getElementById('cartTotal').innerText = total;
-
-            },
-            openPay() {
-                const name = document.getElementById('custName').value;
-                const phone = document.getElementById('custPhone').value;
-                const addr = document.getElementById('custAddr').value;
-                if(!name || !phone || !addr) return alert("Please fill details!");
-                const t = document.getElementById('cartTotal').innerText;
-                document.getElementById('payAmt').innerText = t;
-                document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=9837904369@ptsbi&pn=ZainabyaGroup&am=${t}&cu=INR`;
-                document.getElementById('payModal').style.display = 'flex';
-            },
-            confirmOrder() {
-                let itemsStr = this.cart.map(i => `${i.name} (Qty: ${i.qty})`).join(', ');
-                let msg = `*NEW ORDER FROM ZAINABYA*\n\n*Items:* ${itemsStr}\n*Customer:* ${document.getElementById('custName').value}\n*Total:* Rs. ${document.getElementById('cartTotal').innerText}`;
-                window.open(`https://wa.me/919837904369?text=${encodeURIComponent(msg)}`);
-          }
-        };
-     app.init();
-
-function openContactPopup() {
-    document.getElementById('contactPopup').style.display = 'flex';
-}
-
-function closeContactPopup() {
-    document.getElementById('contactPopup').style.display = 'none';
-}
-</script>
-    <div class="mobile-nav" style="position: fixed; bottom: 0; left: 0; width: 100%; background: var(--charcoal); display: none; justify-content: space-around; padding: 15px; border-top: 2px solid var(--gold); z-index: 9999;">
-    <span onclick="app.nav('home')" style="font-size: 24px; cursor: pointer;">🏠</span>
-    <span onclick="app.nav('catalog')" style="font-size: 24px; cursor: pointer;">🛍️</span>
-    <span onclick="app.nav('cart')" style="font-size: 24px; cursor: pointer;">🛒</span>
-    <span onclick="app.nav('account')" style="font-size: 24px; cursor: pointer;">👤</span>
-</div>
-
-
-  
-
-
-
-
-
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script>
-   
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBIX0H_PKPM6I9MLWlE1XrS1EL3qk4EoUA",
-    authDomain: "stars-traders.firebaseapp.com",
-    projectId: "stars-traders",
-    storageBucket: "stars-traders.firebasestorage.app",
-    messagingSenderId: "772811314274",
-    appId: "1:772811314274:web:7a86f5e71ba32aaf49ad3b",
-    measurementId: "G-XZ7Z2TH6H3"
-  };
- 
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
-
- function googleLogin() {
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            document.getElementById("accountUserInfo").innerHTML =
-                "✅ Welcome " + result.user.displayName;
-        })
-        .catch((error) => {
-            console.error(error);
-            alert("❌ Google Login Failed: " + error.message);
-        });
-}
-
-  function logout() {
-    auth.signOut().then(() => {
-     document.getElementById("accountUserInfo").innerHTML = "👋 Logged Out";
-    });
-  }
-
-  auth.onAuthStateChanged(function(user) {
-    if (user) {
-      document.getElementById("accountUserInfo").innerHTML = "✅ Logged in as: " + user.displayName;
-    } else {
-      document.getElementById("userInfo").innerHTML =
-      "";
-       
-    }
-  });
- document.getElementById("badge").innerText = cart.length;
-</script>
-<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script>
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let count = 0;
 
-function saveCart(){
-localStorage.setItem("cart", JSON.stringify(cart));
+function addCart(){
+
+count++;
+
+document.getElementById("cartCount").innerText = count;
+
+alert("Product added to cart");
+
 }
 
 </script>
-<script>
 
-document.addEventListener("DOMContentLoaded", function(){
-
-let savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-document.getElementById("badge").innerText = savedCart.length;
-
-});
-
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
