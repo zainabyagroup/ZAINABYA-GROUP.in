@@ -20,6 +20,21 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif; }
 body { background: var(--light); color: var(--dark); overflow-x: hidden; }
 
+/* --- AMAZON STYLE SEARCH BOX --- */
+.search-box { position: relative; display: flex; align-items: center; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 2px 10px; width: 300px; transition: 0.3s; }
+.search-box:focus-within { border-color: var(--gold); box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); width: 350px; }
+.search { border: none; padding: 8px; font-size: 13px; outline: none; width: 100%; }
+
+.search-suggestions { 
+    position: absolute; top: 100%; left: 0; width: 100%; background: white; 
+    border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: none; z-index: 5000; 
+}
+.search-suggestions.active { display: block; }
+.suggestion-item { padding: 10px 15px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f8f8f8; }
+.suggestion-item:hover { background: #f8fafc; color: var(--gold); }
+.suggestion-item i { color: #999; font-size: 11px; }
+
 /* --- ACCOUNT DROPDOWN STYLE --- */
 .user-menu {
     position: absolute;
@@ -62,9 +77,6 @@ header {
 
 .logo { font-family: 'Playfair Display', serif; font-size: 28px; letter-spacing: 2px; font-weight: 700; color: var(--dark); cursor: pointer; }
 .logo span { color: var(--gold); }
-.search-box { display: flex; align-items: center; }
-.search { border: none; border-bottom: 1px solid #ddd; padding: 8px; font-size: 13px; outline: none; transition: 0.3s; width: 200px; }
-.search:focus { border-color: var(--gold); width: 250px; }
 .right { display: flex; justify-content: flex-end; gap: 25px; align-items: center; }
 .cart { position: relative; cursor: pointer; font-size: 22px; transition: 0.3s; }
 
@@ -112,6 +124,10 @@ header {
 
 @media (max-width: 768px) {
     .p-img-container { height: 180px; }
+    header { padding: 15px 20px; grid-template-columns: 1fr auto; }
+    .search-box { display: none; }
+    .products { padding: 15px; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cartBox { width: 100%; }
 }
 
 .info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin: 15px 0 10px; padding: 0 10px; }
@@ -153,13 +169,6 @@ header {
 .checkout-container { max-width: 500px; margin: 0 auto; }
 .form-input { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--accent); border-radius: 5px; font-size: 14px; }
 .qr-box { display: none; text-align: center; border: 2px dashed var(--gold); padding: 20px; border-radius: 10px; margin-top: 20px; }
-
-@media (max-width: 768px) {
-    header { padding: 15px 20px; grid-template-columns: 1fr auto; }
-    .search-box { display: none; }
-    .products { padding: 15px; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .cartBox { width: 100%; }
-}
 </style>
 </head>
 
@@ -170,8 +179,9 @@ header {
 
 <header>
     <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass" style="font-size: 13px; margin-right: 10px;"></i>
-        <input class="search" placeholder="Search products..." onkeyup="searchProduct()">
+        <i class="fa-solid fa-magnifying-glass" style="font-size: 13px; color:#999;"></i>
+        <input class="search" placeholder="Search for products, brands and more" onkeyup="searchProduct(event)" id="searchInput">
+        <div class="search-suggestions" id="suggestionsBox"></div>
     </div>
     <div class="logo" onclick="location.reload()">ZAINABYA <span>GROUP</span> ISLAMIC</div>
     <div class="right">
@@ -288,6 +298,64 @@ const mainFolders = [
     {name: "Care Folder 1", img: "TAZBEEH.jpg", type: "folder", data: pattiDesigns, cat: "care"},
     {name: "Care Folder 2", img: "CATALOG.webp", type: "folder", data: pattiDesigns, cat: "care"}
 ];
+
+// --- ADVANCED SEARCH LOGIC (AMAZON STYLE) ---
+function searchProduct(e) {
+    let input = e.target.value.toLowerCase();
+    let suggestionsBox = document.getElementById("suggestionsBox");
+    
+    if (input.length < 1) {
+        suggestionsBox.classList.remove("active");
+        renderMainFolders(); 
+        return;
+    }
+
+    // Filter Items from all folders
+    let allProducts = [];
+    mainFolders.forEach(f => {
+        allProducts.push({name: f.name, type: 'folder'});
+        f.data.forEach(p => allProducts.push({name: p.name, type: 'product', data: p}));
+    });
+
+    let matches = allProducts.filter(item => item.name.toLowerCase().includes(input)).slice(0, 6);
+
+    if (matches.length > 0) {
+        suggestionsBox.innerHTML = matches.map(m => `
+            <div class="suggestion-item" onclick="selectSearch('${m.name}')">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>${m.name}</span>
+            </div>
+        `).join('');
+        suggestionsBox.classList.add("active");
+    } else {
+        suggestionsBox.classList.remove("active");
+    }
+
+    // Grid Update
+    let cards = document.querySelectorAll(".card h3");
+    cards.forEach(cardTitle => {
+        let card = cardTitle.closest('.card');
+        card.style.display = cardTitle.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+}
+
+function selectSearch(name) {
+    document.getElementById("searchInput").value = name;
+    document.getElementById("suggestionsBox").classList.remove("active");
+    // Trigger grid filter
+    let cards = document.querySelectorAll(".card h3");
+    cards.forEach(cardTitle => {
+        let card = cardTitle.closest('.card');
+        card.style.display = cardTitle.innerText.toLowerCase().includes(name.toLowerCase()) ? "block" : "none";
+    });
+}
+
+// Close suggestions on click outside
+document.addEventListener('click', (e) => {
+    if(!document.querySelector('.search-box').contains(e.target)) {
+        document.getElementById("suggestionsBox").classList.remove("active");
+    }
+});
 
 function renderMainFolders(cat = 'all') {
     const grid = document.getElementById('productsGrid');
@@ -469,14 +537,7 @@ function openSpec(name, price, img, desc) {
 }
 function closeSpec() { document.getElementById('productModal').classList.remove('active'); document.body.style.overflow = 'auto'; }
 function toggleCart(){ document.getElementById("cartBox").classList.toggle("active"); document.getElementById("overlay").classList.toggle("active"); }
-function searchProduct(){
-    let input = document.querySelector(".search").value.toLowerCase();
-    let cards = document.querySelectorAll(".card h3");
-    cards.forEach(cardTitle => {
-        let card = cardTitle.closest('.card');
-        card.style.display = cardTitle.innerText.toLowerCase().includes(input) ? "block" : "none";
-    });
-}
+
 renderMainFolders();
 </script>
 
@@ -500,20 +561,18 @@ const provider = new GoogleAuthProvider();
 function updateAccountUI(user) {
     const userImg = document.getElementById('userIconImg');
     const userName = document.getElementById('userNameDisplay');
-    const userMenu = document.getElementById('userMenu');
     const menuList = document.getElementById('menuList');
 
     if (user) {
         userImg.src = user.photoURL || "ACCOUNT.webp";
         userName.innerText = "Hello, " + (user.displayName ? user.displayName.split(' ')[0] : 'User');
         
-        // ADMIN LINK KO MENU ME ADD KARNA (Bina Design chhede)
         if (!document.getElementById('adminBtn')) {
             const adminLi = document.createElement('li');
             adminLi.id = "adminBtn";
             adminLi.style = "color: var(--gold); font-weight: 600; border-bottom: 1px solid #eee; margin-bottom: 5px;";
             adminLi.innerHTML = `<i class="fa-solid fa-gauge"></i> Admin Dashboard`;
-            adminLi.onclick = () => { window.openAdminDashboard(); menu.classList.remove('active'); };
+            adminLi.onclick = () => { window.openAdminDashboard(); document.getElementById('userMenu').classList.remove('active'); };
             menuList.insertBefore(adminLi, menuList.firstChild);
         }
     } else {
