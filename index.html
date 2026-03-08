@@ -20,7 +20,7 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif; }
 body { background: var(--light); color: var(--dark); overflow-x: hidden; }
 
-/* --- ADVANCED ACCOUNT DROPDOWN STYLE --- */
+/* --- ACCOUNT DROPDOWN STYLE --- */
 .user-menu {
     position: absolute;
     top: 55px;
@@ -147,7 +147,7 @@ header {
 .cart-item-qty { display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 5px 10px; border-radius: 5px; border: 1px solid #eee; width: fit-content; margin-top: 5px; }
 .cart-item-qty button { border: none; background: none; cursor: pointer; font-weight: 700; color: #666; }
 
-/* --- NEW CHECKOUT STYLE --- */
+/* --- CHECKOUT STYLE --- */
 .checkout-page { position: fixed; inset: 0; background: white; z-index: 4000; display: none; padding: 20px; overflow-y: auto; }
 .checkout-page.active { display: block; }
 .checkout-container { max-width: 500px; margin: 0 auto; }
@@ -186,7 +186,7 @@ header {
             </div>
             <div class="user-menu" id="userMenu">
                 <h4 id="userNameDisplay">Welcome, Guest</h4>
-                <ul>
+                <ul id="menuList">
                     <li><i class="fa-solid fa-box"></i> My Orders</li>
                     <li><i class="fa-solid fa-heart"></i> Wishlist</li>
                     <li class="logout-btn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</li>
@@ -271,6 +271,7 @@ header {
 <script>
 let cart = {};
 let total = 0;
+let orderHistory = JSON.parse(localStorage.getItem('adminOrders')) || [];
 
 const pattiDesigns = [
     {id: 'p1', name: "Patti Design 1", price: 200, img: "SAJDAGAH.webp", desc: "Premium Patti Style 1", cat: "essential"},
@@ -380,7 +381,6 @@ function renderCart() {
     document.getElementById("cartCount").innerText = count;
 }
 
-// CHECKOUT FUNCTIONS
 function openCheckout() {
     if(total <= 0) return alert("Your cart is empty!");
     document.getElementById('checkoutTotal').innerText = total;
@@ -397,17 +397,66 @@ function showQR() {
     const name = document.getElementById('custName').value;
     const phone = document.getElementById('custPhone').value;
     const address = document.getElementById('custAddress').value;
-
     if(!name || !phone || !address) return alert("Please fill all details!");
-
     document.getElementById('detailsForm').style.display = 'none';
     document.getElementById('qrBox').style.display = 'block';
 }
 
 function finishOrder() {
     const name = document.getElementById('custName').value;
-    alert("Thank you " + name + "! Redirecting to WhatsApp...");
+    const phone = document.getElementById('custPhone').value;
+    const address = document.getElementById('custAddress').value;
+
+    const newOrder = {
+        customerName: name,
+        customerPhone: phone,
+        customerAddress: address,
+        orderTotal: total,
+        orderTime: new Date().toLocaleString(),
+        items: Object.values(cart).map(item => `${item.name} (x${item.qty})`).join(', ')
+    };
+
+    orderHistory.push(newOrder);
+    localStorage.setItem('adminOrders', JSON.stringify(orderHistory));
+
+    alert("Thank you " + name + "! Order details saved.");
+    let message = `*New Order from 14 Star Traders*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Total:* Rs.${total}`;
+    window.open(`https://wa.me/YOUR_NUMBER?text=${message}`, '_blank');
     location.reload(); 
+}
+
+function openAdminDashboard() {
+    let adminDiv = document.createElement('div');
+    adminDiv.id = "adminPanel";
+    adminDiv.style = "position:fixed; inset:0; background:white; z-index:9999; padding:20px; overflow-y:auto; font-family:'Montserrat';";
+    
+    let html = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid gold; padding-bottom:15px; margin-bottom:20px;">
+            <h2 style="font-family:'Playfair Display';">SALES DASHBOARD</h2>
+            <button onclick="document.getElementById('adminPanel').remove()" style="padding:10px 20px; background:var(--dark); color:white; border:none; border-radius:5px; cursor:pointer;">CLOSE</button>
+        </div>
+        ${orderHistory.length === 0 ? '<p>No orders yet.</p>' : `
+            <table style="width:100%; border-collapse:collapse; min-width:600px;">
+                <tr style="background:#f8fafc; border-bottom:1px solid #ddd;">
+                    <th style="padding:12px; text-align:left;">Date</th>
+                    <th style="padding:12px; text-align:left;">Customer</th>
+                    <th style="padding:12px; text-align:left;">Items</th>
+                    <th style="padding:12px; text-align:left;">Total</th>
+                </tr>
+                ${orderHistory.slice().reverse().map(order => `
+                    <tr style="border-bottom:1px solid #eee;">
+                        <td style="padding:12px; font-size:11px;">${order.orderTime}</td>
+                        <td style="padding:12px;"><b>${order.customerName}</b><br>${order.customerPhone}</td>
+                        <td style="padding:12px; font-size:12px;">${order.items}</td>
+                        <td style="padding:12px; font-weight:700;">Rs. ${order.orderTotal}</td>
+                    </tr>
+                `).join('')}
+            </table>
+        `}
+        <button onclick="if(confirm('Clear history?')){localStorage.removeItem('adminOrders'); location.reload();}" style="margin-top:20px; background:#eee; padding:5px 10px; border:none; cursor:pointer;">Clear History</button>
+    `;
+    adminDiv.innerHTML = html;
+    document.body.appendChild(adminDiv);
 }
 
 function openSpec(name, price, img, desc) {
@@ -448,51 +497,48 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-// Advanced UI Update Function
 function updateAccountUI(user) {
     const userImg = document.getElementById('userIconImg');
     const userName = document.getElementById('userNameDisplay');
     const userMenu = document.getElementById('userMenu');
+    const menuList = document.getElementById('menuList');
 
     if (user) {
         userImg.src = user.photoURL || "ACCOUNT.webp";
         userName.innerText = "Hello, " + (user.displayName ? user.displayName.split(' ')[0] : 'User');
+        
+        // ADMIN LINK KO MENU ME ADD KARNA (Bina Design chhede)
+        if (!document.getElementById('adminBtn')) {
+            const adminLi = document.createElement('li');
+            adminLi.id = "adminBtn";
+            adminLi.style = "color: var(--gold); font-weight: 600; border-bottom: 1px solid #eee; margin-bottom: 5px;";
+            adminLi.innerHTML = `<i class="fa-solid fa-gauge"></i> Admin Dashboard`;
+            adminLi.onclick = () => { window.openAdminDashboard(); menu.classList.remove('active'); };
+            menuList.insertBefore(adminLi, menuList.firstChild);
+        }
     } else {
         userImg.src = "ACCOUNT.webp";
         userName.innerText = "Welcome, Guest";
-        userMenu.classList.remove('active');
+        if (document.getElementById('adminBtn')) document.getElementById('adminBtn').remove();
     }
 }
 
-// Handle Account Click (Amazon/Flipkart Style)
 window.handleAccountClick = function() {
     if (!auth.currentUser) {
-        // Not logged in: Trigger Login
-        signInWithPopup(auth, provider)
-        .then((result) => {
-            alert("Welcome " + result.user.displayName);
-        })
-        .catch((error) => alert(error.message));
+        signInWithPopup(auth, provider).catch((error) => alert(error.message));
     } else {
-        // Logged in: Toggle Dropdown
         document.getElementById('userMenu').classList.toggle('active');
     }
 }
 
-// Sign Out Function
 window.logout = function() {
-    signOut(auth).then(() => {
-        alert("Signed out successfully");
-        location.reload();
-    });
+    signOut(auth).then(() => { location.reload(); });
 }
 
-// Observe Auth State (Persistence)
 onAuthStateChanged(auth, (user) => {
     updateAccountUI(user);
 });
 
-// Close dropdown if clicked outside
 window.addEventListener('click', function(e) {
     const menu = document.getElementById('userMenu');
     const wrapper = document.querySelector('.account-wrapper');
