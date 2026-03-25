@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYNTH AI | Powered by Gemini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body {
+            background: var(--bg);
+            background-image: radial-gradient(circle at center, #111 0%, #050505 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .zynth-core {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            filter: blur(25px);
+            box-shadow: 0 0 60px var(--primary);
+            animation: pulse 2s infinite alternate;
+            position: absolute;
+            top: 15%;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.4; }
+            to { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            letter-spacing: 6px;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chat-box {
+            height: 250px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        .msg { margin-bottom: 12px; line-height: 1.4; }
+        .user-msg { color: #fff; font-weight: 600; }
+        .ai-msg { color: var(--primary); }
+
+        .input-area {
+            display: flex;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50px;
+            padding: 5px 15px;
+            border: 1px solid var(--border);
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px;
+            flex: 1;
+            outline: none;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.1); color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="zynth-core"></div>
+
+    <div class="container">
+        <h1>ZYNTH</h1>
+        <div class="status" id="status">System Online</div>
+        
+        <div class="chat-box" id="chatBox">
+            <div class="msg ai-msg"><b>Zynth:</b> Hello! I am ready to assist you.</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <button onclick="askZynth()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+   <script>
+        // Apni API Key yahan sahi se check karlo
+        const API_KEY = "AIzaSyCGVHu-iwW3Oa5ZDfOXFi1AcGgHfStFF74"; 
+
+        async function askZynth() {
+            const inputField = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            const status = document.getElementById('status');
+            const userText = inputField.value.trim();
+
+            if (!userText) return;
+
+            // User Message
+            chatBox.innerHTML += `<div class="msg user-msg"><b>You:</b> ${userText}</div>`;
+            inputField.value = "";
+            status.innerText = "Zynth is thinking...";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                // Maine yahan v1beta ko v1 kar diya hai aur model path check kiya hai
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: userText }] }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.error) {
+                    // Agar ab bhi error aaye toh model name 'gemini-pro' try karenge
+                    chatBox.innerHTML += `<div class="msg" style="color:red;"><b>Error:</b> ${data.error.message}</div>`;
+                } 
+                else if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    const aiResponse = data.candidates[0].content.parts[0].text;
+                    chatBox.innerHTML += `<div class="msg ai-msg"><b>Zynth:</b> ${aiResponse}</div>`;
+                } else {
+                    chatBox.innerHTML += `<div class="msg" style="color:yellow;"><b>System:</b> Unexpected Response. Check Console.</div>`;
+                }
+
+            } catch (error) {
+                chatBox.innerHTML += `<div class="msg" style="color:red;"><b>Error:</b> Connection failed.</div>`;
+            }
+
+            status.innerText = "System Online";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') askZynth();
+        });
+    </script>
+</body>
+</html>
